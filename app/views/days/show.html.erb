@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @day.date %>
+</p>
+
+<p>
+  <strong>Instructor:</strong>
+  <%= @day.instructor %>
+</p>
+
+<p>
+  <strong>Assistant:</strong>
+  <%= @day.assistant %>
+</p>
+
+<p>
+  <strong>Takeoff:</strong>
+  <%= @day.takeoff %>
+</p>
+
+<%= link_to 'Edit', edit_day_path(@day) %> |
+<%= link_to 'Back', days_path %>

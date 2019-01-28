@@ -1,0 +1,2 @@
+class Glider < ApplicationRecord
+end

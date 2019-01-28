@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @glider.type %>
+</p>
+
+<p>
+  <strong>Size:</strong>
+  <%= @glider.size %>
+</p>
+
+<p>
+  <strong>Manufacturer:</strong>
+  <%= @glider.manufacturer %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @glider.image %>
+</p>
+
+<p>
+  <strong>Color name:</strong>
+  <%= @glider.color_name %>
+</p>
+
+<p>
+  <strong>Serial number:</strong>
+  <%= @glider.serial_number %>
+</p>
+
+<p>
+  <strong>Year manufactured:</strong>
+  <%= @glider.year_manufactured %>
+</p>
+
+<%= link_to 'Edit', edit_glider_path(@glider) %> |
+<%= link_to 'Back', gliders_path %>
