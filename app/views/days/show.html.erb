@@ -1,3 +1,6 @@
+
+<%= form_with(model: @day, local: true) do |form| %>
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -20,5 +23,12 @@
   <%= @day.takeoff %>
 </p>
 
+<p>
+  <strong>Select student</strong>
+  <%= form.collection_select :student_id, Student.all.order(:first_name), :id, :first_name %>
+</p>
+
 <%= link_to 'Edit', edit_day_path(@day) %> |
 <%= link_to 'Back', days_path %>
+
+<% end %>

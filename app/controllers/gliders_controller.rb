@@ -64,6 +64,6 @@ class GlidersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def glider_params
-      params.require(:glider).permit(:type, :size, :manufacturer, :image, :color_name, :serial_number, :year_manufactured)
+      params.require(:glider).permit(:type_glider, :size, :manufacturer, :image, :color_name, :serial_number, :year_manufactured)
     end
 end
