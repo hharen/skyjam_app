@@ -24,9 +24,43 @@
 </p>
 
 <p>
-  <strong>Select student</strong>
+  <strong>Students</strong>
+  <!-- /loop over the student names/ -->
+  <% @day.students.each do |student| %>
+    <br />
+    <%= student.first_name %> <%= student.last_name %> <br />
+  <% end  %>
+</p>
+<p>
+  <strong>Select student to add</strong>
   <%= form.collection_select :student_id, Student.all.order(:first_name), :id, :first_name %>
 </p>
+
+<h1>Students</h1>
+
+<table>
+  <tbody>
+    <% @day.students.each do |student| %>
+      <tr>
+        <td><%= student.first_name %></td>
+        <td><%= student.last_name %></td>
+        <td><%= student.n_flights %></td>
+        <td><%= student.shv_number %></td>
+        <td><%= student.radio %></td>
+        <td><%= student.glider %></td>
+        <td><%= link_to 'Show', student %></td>
+        <td><%= link_to 'Edit', edit_student_path(student) %></td>
+        <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="actions">
+  <%= form.submit %>
+
+
+</div>
 
 <%= link_to 'Edit', edit_day_path(@day) %> |
 <%= link_to 'Back', days_path %>

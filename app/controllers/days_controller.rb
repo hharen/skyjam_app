@@ -38,8 +38,19 @@ class DaysController < ApplicationController
   # PATCH/PUT /days/1
   # PATCH/PUT /days/1.json
   def update
+    student_id_to_add = params[:day][:student_id]
     respond_to do |format|
       if @day.update(day_params)
+        if @day.student_ids.any? {student_id_to_add}
+        else
+          @student = Student.find(student_id_to_add)
+          @day.students<<@student
+          # debugger
+          # students = @day.students.to_a
+          # students << Student.find(student_id_to_add)
+          # @day.students = students.uniq
+          @day.save
+        end
         format.html { redirect_to @day, notice: 'Day was successfully updated.' }
       else
         format.html { render :edit }
