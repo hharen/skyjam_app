@@ -1,0 +1,2 @@
+class DaysStudent < ApplicationRecord
+end
