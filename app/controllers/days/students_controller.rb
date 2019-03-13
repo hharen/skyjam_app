@@ -22,7 +22,11 @@ class Days::StudentsController < ApplicationController
   # DELETE /students/1
   # DELETE /students/1.json
   def destroy
-
+    @student = Student.find(params[:id])
+    @day.students.destroy(@student)
+    respond_to do |format|
+      format.html { redirect_to day_students_url, notice: 'Student was successfully removed.' }
+    end
   end
 
   private
