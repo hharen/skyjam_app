@@ -31,10 +31,15 @@
     <%= student.first_name %> <%= student.last_name %> <br />
   <% end  %>
 </p>
+
 <p>
   <strong>Select student to add</strong>
-  <%= form.collection_select :student_id, Student.all.order(:first_name), :id, :first_name %>
+  <%= form.collection_select :student_id, Student.all.order(:first_name), :id, :first_name%>
 </p>
+
+<div class="actions">
+  <%= form.submit %>
+</div>
 
 <h1>Students</h1>
 

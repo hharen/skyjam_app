@@ -67,6 +67,12 @@ class DaysController < ApplicationController
     end
   end
 
+  def add_student
+    day = Day.find(params[:id])
+    student = Student.find(params[:student_id])
+    day.students << student
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_day
