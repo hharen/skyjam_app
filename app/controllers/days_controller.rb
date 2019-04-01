@@ -10,6 +10,7 @@ class DaysController < ApplicationController
   # GET /days/1
   # GET /days/1.json
   def show
+    @day_student = DaysStudent.new(day: @day)
   end
 
   # GET /days/new

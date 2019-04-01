@@ -15,7 +15,9 @@ class Days::StudentsController < ApplicationController
 
 
   def create
-    @day.students.new(@student)
+    @student = Student.find(params[:student_id])
+    @day.students << @student
+    @day.save
   end
 
 

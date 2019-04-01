@@ -1,5 +1,4 @@
 
-<%= form_with(model: @day, local: true) do |form| %>
 
 <p id="notice"><%= notice %></p>
 
@@ -32,6 +31,8 @@
   <% end  %>
 </p>
 
+<%= form_with(url: day_students_path(@day), local: true) do |form| %>
+
 <p>
   <strong>Select student to add</strong>
   <%= form.collection_select :student_id, Student.all.order(:first_name), :id, :first_name%>
@@ -40,6 +41,8 @@
 <div class="actions">
   <%= form.submit %>
 </div>
+
+<% end %>
 
 <h1>Students</h1>
 
@@ -61,13 +64,13 @@
   </tbody>
 </table>
 
+<%= form_with(model: @day, local: true) do |form| %>
+
 <div class="actions">
   <%= form.submit %>
-
-
 </div>
+
+<% end %>
 
 <%= link_to 'Edit', edit_day_path(@day) %> |
 <%= link_to 'Back', days_path %>
-
-<% end %>
