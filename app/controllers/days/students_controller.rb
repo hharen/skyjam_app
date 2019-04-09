@@ -10,7 +10,7 @@ class Days::StudentsController < ApplicationController
 
   # GET /days/:day_id/students/new
   def new
-
+    
   end
 
 
