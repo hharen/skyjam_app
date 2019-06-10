@@ -1,0 +1,23 @@
+<%= form_for @day do |form| %>
+  <p>
+    <%= form.label :date %>
+    <%= form.date_field :date %>
+  </p>
+
+  <p>
+    <%= form.label :instructor %>
+    <%= form.text_field :instructor %>
+  </p>
+
+  <p>
+    <%= form.label :assistant %>
+    <%= form.text_field :assistant %>
+  </p>
+
+  <p>
+    <%= form.label :takeoff %>
+    <%= form.text_field :takeoff %>
+  </p>
+
+  <%= form.submit %>
+<% end %>

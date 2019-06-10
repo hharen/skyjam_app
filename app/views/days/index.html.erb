@@ -1,0 +1,26 @@
+<h1>Days</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Instructor</th>
+      <th>Assistant</th>
+      <th>Takeoff</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @days.each do |day| %>
+      <tr>
+        <td><%= link_to day.date, day %></td>
+        <td><%= day.instructor %></td>
+        <td><%= day.assistant %></td>
+        <td><%= day.takeoff %></td>
+        <td><%= button_to 'Delete', day, method: :delete, confirm: 'Are you sure?' %></td>
+        <td><%= link_to 'Edit', edit_day_path(day) %></td>
+      </tr>
+    <% end %>
+  </tbody>  
+</table>
+
+<%= link_to 'New day', new_day_path %>
