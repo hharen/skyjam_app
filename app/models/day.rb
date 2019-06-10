@@ -1,4 +1,4 @@
 class Day < ApplicationRecord
-  has_and_belongs_to_many :students
-  has_many :flights
+  has_many :attendances
+  has_many :students, through: :attendances
 end

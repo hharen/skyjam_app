@@ -10,6 +10,5 @@ class CreateAttendances < ActiveRecord::Migration[5.2]
 
     add_foreign_key :attendances, :days
     add_foreign_key :attendances, :students
-    add_foreign_key :attendances, :gliders
   end
 end

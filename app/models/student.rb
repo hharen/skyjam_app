@@ -1,4 +1,4 @@
 class Student < ApplicationRecord
-  has_and_belongs_to_many :days
-  has_many :flights
+  has_many :attendances
+  has_many :gliders
 end

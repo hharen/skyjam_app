@@ -65,7 +65,6 @@ ActiveRecord::Schema.define(version: 2019_06_10_184034) do
   end
 
   add_foreign_key "attendances", "days"
-  add_foreign_key "attendances", "gliders"
   add_foreign_key "attendances", "students"
   add_foreign_key "flights", "attendances"
   add_foreign_key "gliders", "students"
