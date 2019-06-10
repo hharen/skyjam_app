@@ -10,52 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_09_212107) do
+ActiveRecord::Schema.define(version: 0) do
 
-  create_table "days", force: :cascade do |t|
-    t.date "date"
-    t.string "instructor"
-    t.string "assistant"
-    t.string "takeoff"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "days_students", id: false, force: :cascade do |t|
-    t.integer "day_id"
-    t.integer "student_id"
-  end
-
-  create_table "flights", force: :cascade do |t|
-    t.integer "student_id"
-    t.integer "day_id"
-    t.text "manoeuvres"
-    t.text "notes"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "gliders", force: :cascade do |t|
-    t.string "type_glider"
-    t.string "size"
-    t.string "manufacturer"
-    t.string "image"
-    t.string "color_name"
-    t.string "serial_number"
-    t.string "year_manufactured"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "students", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.integer "n_flights"
-    t.string "shv_number"
-    t.boolean "radio"
-    t.string "glider"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
 end
