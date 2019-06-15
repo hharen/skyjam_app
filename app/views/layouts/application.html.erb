@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Skyjam</title>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<nav>
+  <%= link_to 'Days', days_path %>
+  <%= link_to 'Students', students_path %>
+  <%= link_to 'Gliders', gliders_path %>
+</nav>
+
+<%= yield %>
+
+</body>
+</html>

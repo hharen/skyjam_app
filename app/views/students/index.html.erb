@@ -1,0 +1,26 @@
+<h1>Students</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Additional flights</th>
+      <th>SHV Number</th>
+      <th>Radio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @students.each do |student| %>
+      <tr>
+        <td><%= link_to student.name, student %></td>
+        <td><%= student.additional_flights %></td>
+        <td><%= student.shv_number %></td>
+        <td><%= student.radio %></td>
+        <td><%= button_to 'Delete', student, method: :delete, confirm: 'Are you sure?' %></td>
+        <td><%= link_to 'Edit', edit_student_path(student) %></td>
+      </tr>
+    <% end %>
+  </tbody>  
+</table>
+
+<%= link_to 'New student', new_student_path %>

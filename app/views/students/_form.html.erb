@@ -1,0 +1,33 @@
+<%= form_for @student do |form| %>
+  <p>
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name %>
+  </p>
+
+  <p>
+    <%= form.label :middle_name %>
+    <%= form.text_field :middle_name %>
+  </p>
+
+  <p>
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name %>
+  </p>
+
+  <p>
+    <%= form.label :additional_flights %>
+    <%= form.number_field :additional_flights %>
+  </p>
+
+  <p>
+    <%= form.label :shv_number %>
+    <%= form.text_field :shv_number %>
+  </p>
+
+  <p>
+    <%= form.label :radio %>
+    <%= form.check_box :radio %>
+  </p>
+
+  <%= form.submit %>
+<% end %>

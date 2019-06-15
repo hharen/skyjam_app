@@ -1,0 +1,41 @@
+<%= form_for @glider do |form| %>
+  <p>
+    <%= form.label :glider_type %>
+    <%= form.text_field :glider_type %>
+  </p>
+
+  <p>
+    <%= form.label :size %>
+    <%= form.text_field :size %>
+  </p>
+
+  <p>
+    <%= form.label :manufacturer %>
+    <%= form.text_field :manufacturer %>
+  </p>
+
+  <p>
+    <b>TODO: add image!</b>
+  </p>
+
+  <p>
+    <%= form.label :color %>
+    <%= form.text_field :color %>
+  </p>
+
+  <p>
+    <%= form.label :serial_number %>
+    <%= form.text_field :serial_number %>
+  </p>
+
+  <p>
+    <%= form.label :year_manufactured %>
+    <%= form.number_field :year_manufactured, min: 2000, max: 2020 %>
+  </p>
+
+  <p>
+    <b>TODO: add student!</b>
+  </p>
+
+  <%= form.submit %>
+<% end %>
