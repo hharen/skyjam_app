@@ -11,3 +11,42 @@
 <p>
   Take-off: <%= @day.takeoff %>
 </p>
+
+<h2>Attendances</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Student</th>
+      <th>Glider</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @day.attendances.each do |attendance| %>
+      <tr>
+        <td><%= attendance.student.name %></td>
+        <td><%= attendance.glider.glider_type %></td>
+        <td><%= button_to 'Delete', [@day, attendance], method: :delete, confirm: 'Are you sure?' %></td>
+      </tr>
+    <% end %>
+  </tbody>  
+</table>
+
+<h2>Create attendance</h2>
+
+<%= form_for [@day, @attendance] do |form| %>
+  <%= form.hidden_field :day_id %>
+
+  <p>
+    <%= form.label :student_id %>
+    <%= form.collection_select(:student_id, @students_without_attendance, :id, :name) %>
+  </p>
+
+  <p>
+    <%= form.label :glider_id %>
+    <%= form.collection_select(:glider_id, @gliders, :id, :glider_type) %>
+  </p>
+
+  <%= form.submit %>
+<% end %>

@@ -31,6 +31,9 @@ class DaysController < ApplicationController
 
   def show
     @day = Day.find(params[:id])
+    @attendance = Attendance.new(day: @day)
+    @students_without_attendance = @day.students_without_attendance
+    @gliders = Glider.all
   end
 
   private
