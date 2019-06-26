@@ -3,6 +3,9 @@ Rails.application.routes.draw do
     resources :attendances, only: [:create, :destroy]
   end
 
-  resources :students
+  resources :students do
+    resources :gliders 
+  end
+
   resources :gliders
 end

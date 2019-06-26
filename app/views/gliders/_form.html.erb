@@ -34,7 +34,12 @@
   </p>
 
   <p>
-    <b>TODO: add student!</b>
+    <%= form.label :student_id %>
+    <%= form.collection_select(:student_id, Student.all, :id, :name) %>
+  </p>
+
+  <p>
+    <b>ADD A EMPTY ITEM TO SELECT</b>
   </p>
 
   <%= form.submit %>
