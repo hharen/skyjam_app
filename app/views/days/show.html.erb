@@ -26,11 +26,11 @@
     <% @day.attendances.each do |attendance| %>
       <tr>
         <td><%= attendance.student.name %></td>
-        <td><%= attendance.glider.glider_type %></td>
+        <td><%= attendance.glider.name%></td>
         <td><%= button_to 'Delete', [@day, attendance], method: :delete, confirm: 'Are you sure?' %></td>
       </tr>
     <% end %>
-  </tbody>  
+  </tbody>
 </table>
 
 <h2>Create attendance</h2>
@@ -45,7 +45,7 @@
 
   <p>
     <%= form.label :glider_id %>
-    <%= form.collection_select(:glider_id, @gliders, :id, :glider_type) %>
+    <%= form.collection_select(:glider_id, @gliders, :id, :name) %>
   </p>
 
   <%= form.submit %>

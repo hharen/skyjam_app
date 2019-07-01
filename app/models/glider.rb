@@ -4,7 +4,7 @@ class Glider < ApplicationRecord
 
 
   def name
-    "#{glider_type} + #{size} | #{manufacturer}"
+    "#{glider_type} #{size} | #{manufacturer} | #{color}"
   end
 
 end
