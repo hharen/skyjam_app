@@ -1,3 +1,5 @@
-<h1>Edit glider</h1>
+<h1>Edit glider <% if @glider.student&.name.present? %> 
+  from <%= @glider.student&.name %>
+  <% end %></h1>
 
 <%= render partial: 'form' %>

@@ -15,9 +15,9 @@
   </p>
 
   <p>
-    Picture: <%= image_tag(@glider.image_url, width: 150) if @glider.image.present? %>
+    Picture: <%= image_tag(@glider.image_url, width: 100) if @glider.image.present? %>
   </p>
-  
+
   <p>
     <%= form.label :image %>
     <%= form.file_field :image %>

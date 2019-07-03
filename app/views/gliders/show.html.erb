@@ -1,4 +1,4 @@
-<h1><%= @glider.glider_type %></h1>
+<h1><%= @glider.glider_type %> from <%= @glider.student&.name %></h1>
 
 <p>
   Size: <%= @glider.size %>
@@ -9,7 +9,7 @@
 </p>
 
 <p>
-  Picture: <%= image_tag(@glider.image_url, width: 150) if @glider.image.present? %>
+  Picture: <%= image_tag(@glider.image_url, width: 100) if @glider.image.present? %>
 </p>
 
 <p>
@@ -22,8 +22,4 @@
 
 <p>
   Year Manufactured: <%= @glider.year_manufactured %>
-</p>
-
-<p>
-  Student: <%= @glider.student&.name %>
 </p>
