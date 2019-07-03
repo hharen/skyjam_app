@@ -9,6 +9,10 @@
 </p>
 
 <p>
+  Picture: <%= image_tag(@glider.image_url, width: 150) if @glider.image.present? %>
+</p>
+
+<p>
   Color: <%= @glider.color %>
 </p>
 

@@ -15,7 +15,12 @@
   </p>
 
   <p>
-    <b>TODO: add image!</b>
+    Picture: <%= image_tag(@glider.image_url, width: 150) if @glider.image.present? %>
+  </p>
+  
+  <p>
+    <%= form.label :image %>
+    <%= form.file_field :image %>
   </p>
 
   <p>
@@ -30,16 +35,12 @@
 
   <p>
     <%= form.label :year_manufactured %>
-    <%= form.number_field :year_manufactured, min: 2000, max: 2020 %>
+    <%= form.number_field :year_manufactured, min: 1990, max: 2020 %>
   </p>
 
   <p>
     <%= form.label :student_id %>
-    <%= form.collection_select(:student_id, Student.all, :id, :name) %>
-  </p>
-
-  <p>
-    <b>ADD A EMPTY ITEM TO SELECT</b>
+    <%= form.collection_select(:student_id, Student.all, :id, :name, include_blank: 'School glider') %>
   </p>
 
   <%= form.submit %>
