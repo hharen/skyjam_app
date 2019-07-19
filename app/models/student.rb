@@ -1,6 +1,7 @@
 class Student < ApplicationRecord
   has_many :attendances, dependent: :destroy
   has_many :gliders, dependent: :destroy
+  has_many :flights, through: :attendance
 
   def name
     [

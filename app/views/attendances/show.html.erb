@@ -1,0 +1,46 @@
+<h1>Attendance show page</h1>
+
+<h2>Attendances</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Student</th>
+      <th>Glider</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+        <tr>
+        <td><%= @attendance.student.name %></td>
+        <td><%= @attendance.glider.name%></td>
+        <td><%#= button_to 'Delete', [@day, attendance], method: :delete, confirm: 'Are you sure?' %></td>
+      </tr>
+  </tbody>
+</table>
+
+<h3>Flights</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Flight Nr.</th>
+      <th>Manouvres</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @attendance.flights.each_with_index do |flight, index| %>
+        <tr>
+        <td><%= index + 1 %></td>
+        <td><%= flight.manoeuvres %></td>
+        <td><%= button_to 'Edit', edit_flight_path(flight), method: :get %></td>
+        <td><%= button_to 'Delete', flight, method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h2>Create flight</h2>
+
+<%= render partial: 'flights/form' %>

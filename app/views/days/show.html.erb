@@ -19,14 +19,19 @@
     <tr>
       <th>Student</th>
       <th>Glider</th>
+      <th>Flights</th>
       <th></th>
     </tr>
   </thead>
   <tbody>
     <% @day.attendances.each do |attendance| %>
       <tr>
-        <td><%= attendance.student.name %></td>
+
+        <td><%= link_to attendance.student.name, [@day, attendance] %></td>
         <td><%= attendance.glider.name%></td>
+        <% attendance.flights.each do |flight| %>
+          <td><%= flight.manoeuvres %></td>
+        <% end %>
         <td><%= button_to 'Delete', [@day, attendance], method: :delete, confirm: 'Are you sure?' %></td>
       </tr>
     <% end %>

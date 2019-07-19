@@ -19,6 +19,11 @@ class AttendancesController < ApplicationController
     redirect_to day
   end
 
+  def show
+    @attendance = Attendance.find(params[:id])
+    @flight = Flight.new(attendance: @attendance)
+  end
+
   private
 
   def attendance_params
