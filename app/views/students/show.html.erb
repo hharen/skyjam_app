@@ -1,34 +1,17 @@
-<p id="notice"><%= notice %></p>
+<h1><%= @student.name %></h1>
 
 <p>
-  <strong>First name:</strong>
-  <%= @student.first_name %>
+  Additional flights: <%= @student.additional_flights %>
 </p>
 
 <p>
-  <strong>Last name:</strong>
-  <%= @student.last_name %>
+Glider: <%= @student.gliders.map(&:name).join(", ")  %>
 </p>
 
 <p>
-  <strong>N flights:</strong>
-  <%= @student.n_flights %>
+  SHV Number: <%= @student.shv_number %>
 </p>
 
 <p>
-  <strong>Shv number:</strong>
-  <%= @student.shv_number %>
+  Radio: <%= @student.radio %>
 </p>
-
-<p>
-  <strong>Radio:</strong>
-  <%= @student.radio %>
-</p>
-
-<p>
-  <strong>Glider:</strong>
-  <%= @student.glider %>
-</p>
-
-<%= link_to 'Edit', edit_student_path(@student) %> |
-<%= link_to 'Back', students_path %>

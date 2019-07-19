@@ -1,40 +1,25 @@
-<p id="notice"><%= notice %></p>
-
+<h1><%= @glider.glider_type %> from <%= @glider.student&.name %></h1>
 
 <p>
-  <strong>Type:</strong>
-  <%= @glider.type_glider %>
+  Size: <%= @glider.size %>
 </p>
 
 <p>
-  <strong>Size:</strong>
-  <%= @glider.size %>
+  Manufacturer: <%= @glider.manufacturer %>
 </p>
 
 <p>
-  <strong>Manufacturer:</strong>
-  <%= @glider.manufacturer %>
+  Picture: <%= image_tag(@glider.image_url, width: 100) if @glider.image.present? %>
 </p>
 
 <p>
-  <strong>Image:</strong>
-  <%= @glider.image %>
+  Color: <%= @glider.color %>
 </p>
 
 <p>
-  <strong>Color name:</strong>
-  <%= @glider.color_name %>
+  Serial Number: <%= @glider.serial_number %>
 </p>
 
 <p>
-  <strong>Serial number:</strong>
-  <%= @glider.serial_number %>
+  Year Manufactured: <%= @glider.year_manufactured %>
 </p>
-
-<p>
-  <strong>Year manufactured:</strong>
-  <%= @glider.year_manufactured %>
-</p>
-
-<%= link_to 'Edit', edit_glider_path(@glider) %> |
-<%= link_to 'Back', gliders_path %>

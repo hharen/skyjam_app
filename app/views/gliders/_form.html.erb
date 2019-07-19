@@ -1,52 +1,47 @@
-<%= form_with(model: glider, local: true) do |form| %>
-  <% if glider.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(glider.errors.count, "error") %> prohibited this glider from being saved:</h2>
+<%= form_for @glider do |form| %>
+  <p>
+    <%= form.label :glider_type %>
+    <%= form.text_field :glider_type %>
+  </p>
 
-      <ul>
-      <% glider.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :type_glider %>
-    <%= form.text_field :type_glider %>
-  </div>
-
-  <div class="field">
+  <p>
     <%= form.label :size %>
     <%= form.text_field :size %>
-  </div>
+  </p>
 
-  <div class="field">
+  <p>
     <%= form.label :manufacturer %>
     <%= form.text_field :manufacturer %>
-  </div>
+  </p>
 
-  <div class="field">
+  <p>
+    Picture: <%= image_tag(@glider.image_url, width: 100) if @glider.image.present? %>
+  </p>
+
+  <p>
     <%= form.label :image %>
-    <%= form.text_field :image %>
-  </div>
+    <%= form.file_field :image %>
+  </p>
 
-  <div class="field">
-    <%= form.label :color_name %>
-    <%= form.text_field :color_name %>
-  </div>
+  <p>
+    <%= form.label :color %>
+    <%= form.text_field :color %>
+  </p>
 
-  <div class="field">
+  <p>
     <%= form.label :serial_number %>
     <%= form.text_field :serial_number %>
-  </div>
+  </p>
 
-  <div class="field">
+  <p>
     <%= form.label :year_manufactured %>
-    <%= form.text_field :year_manufactured %>
-  </div>
+    <%= form.number_field :year_manufactured, min: 1990, max: 2020 %>
+  </p>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <p>
+    <%= form.label :student_id %>
+    <%= form.collection_select(:student_id, Student.all, :id, :name, include_blank: 'School glider') %>
+  </p>
+
+  <%= form.submit %>
 <% end %>

@@ -1,37 +1,23 @@
-<%= form_with(model: day, local: true) do |form| %>
-  <% if day.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(day.errors.count, "error") %> prohibited this day from being saved:</h2>
-
-      <ul>
-      <% day.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
+<%= form_for @day do |form| %>
+  <p>
     <%= form.label :date %>
-    <%= form.date_select :date %>
-  </div>
+    <%= form.date_field :date %>
+  </p>
 
-  <div class="field">
+  <p>
     <%= form.label :instructor %>
     <%= form.text_field :instructor %>
-  </div>
+  </p>
 
-  <div class="field">
+  <p>
     <%= form.label :assistant %>
     <%= form.text_field :assistant %>
-  </div>
+  </p>
 
-  <div class="field">
+  <p>
     <%= form.label :takeoff %>
     <%= form.text_field :takeoff %>
-  </div>
+  </p>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <%= form.submit %>
 <% end %>

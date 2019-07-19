@@ -1,6 +1,5 @@
-<h1>Editing Glider</h1>
+<h1>Edit glider <% if @glider.student&.name.present? %>
+  from <%= @glider.student&.name %>
+  <% end %></h1>
 
-<%= render 'form', glider: @glider %>
-
-<%= link_to 'Show', @glider %> |
-<%= link_to 'Back', gliders_path %>
+<%= render partial: 'form' %>

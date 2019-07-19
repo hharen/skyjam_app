@@ -1,76 +1,57 @@
-
-
-<p id="notice"><%= notice %></p>
+<h1><%= @day.date %></h1>
 
 <p>
-  <strong>Date:</strong>
-  <%= @day.date %>
+  Instructor: <%= @day.instructor %>
 </p>
 
 <p>
-  <strong>Instructor:</strong>
-  <%= @day.instructor %>
+  Assistant: <%= @day.assistant %>
 </p>
 
 <p>
-  <strong>Assistant:</strong>
-  <%= @day.assistant %>
+  Take-off: <%= @day.takeoff %>
 </p>
 
-<p>
-  <strong>Takeoff:</strong>
-  <%= @day.takeoff %>
-</p>
-
-<p>
-  <strong>Students</strong>
-  <!-- /loop over the student names/ -->
-  <% @day.students.each do |student| %>
-    <br />
-    <%= student.first_name %> <%= student.last_name %> <br />
-  <% end  %>
-</p>
-
-<%= form_with(url: day_students_path(@day), local: true) do |form| %>
-
-<p>
-  <strong>Select student to add</strong>
-  <%= form.collection_select :student_id, Student.all.order(:first_name), :id, :first_name%>
-</p>
-
-<div class="actions">
-  <%= form.submit %>
-</div>
-
-<% end %>
-
-<h1>Students</h1>
+<h2>Attendances</h2>
 
 <table>
+  <thead>
+    <tr>
+      <th>Student</th>
+      <th>Glider</th>
+      <th>Flights</th>
+      <th></th>
+    </tr>
+  </thead>
   <tbody>
-    <% @day.students.each do |student| %>
+    <% @day.attendances.each do |attendance| %>
       <tr>
-        <td><%= student.first_name %></td>
-        <td><%= student.last_name %></td>
-        <td><%= student.n_flights %></td>
-        <td><%= student.shv_number %></td>
-        <td><%= student.radio %></td>
-        <td><%= student.glider %></td>
-        <td><%= link_to 'Show', student %></td>
-        <td><%= link_to 'Edit', edit_student_path(student) %></td>
-        <td><%= link_to 'Delete', day_student_path(@day, student), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+        <td><%= link_to attendance.student.name, [@day, attendance] %></td>
+        <td><%= attendance.glider.name%></td>
+        <% attendance.flights.each do |flight| %>
+          <td><%= flight.manoeuvres %></td>
+        <% end %>
+        <td><%= button_to 'Delete', [@day, attendance], method: :delete, confirm: 'Are you sure?' %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= form_with(model: @day, local: true) do |form| %>
+<h2>Create attendance</h2>
 
-<div class="actions">
+<%= form_for [@day, @attendance] do |form| %>
+  <%= form.hidden_field :day_id %>
+
+  <p>
+    <%= form.label :student_id %>
+    <%= form.collection_select(:student_id, @students_without_attendance, :id, :name) %>
+  </p>
+
+  <p>
+    <%= form.label :glider_id %>
+    <%= form.collection_select(:glider_id, @gliders, :id, :name) %>
+  </p>
+
   <%= form.submit %>
-</div>
-
 <% end %>
-
-<%= link_to 'Edit', edit_day_path(@day) %> |
-<%= link_to 'Back', days_path %>

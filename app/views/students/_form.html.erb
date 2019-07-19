@@ -1,47 +1,33 @@
-<%= form_with(model: student, local: true) do |form| %>
-  <% if student.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(student.errors.count, "error") %> prohibited this student from being saved:</h2>
-
-      <ul>
-      <% student.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
+<%= form_for @student do |form| %>
+  <p>
     <%= form.label :first_name %>
     <%= form.text_field :first_name %>
-  </div>
+  </p>
 
-  <div class="field">
+  <p>
+    <%= form.label :middle_name %>
+    <%= form.text_field :middle_name %>
+  </p>
+
+  <p>
     <%= form.label :last_name %>
     <%= form.text_field :last_name %>
-  </div>
+  </p>
 
-  <div class="field">
-    <%= form.label :n_flights %>
-    <%= form.number_field :n_flights %>
-  </div>
+  <p>
+    <%= form.label :additional_flights %>
+    <%= form.number_field :additional_flights %>
+  </p>
 
-  <div class="field">
+  <p>
     <%= form.label :shv_number %>
     <%= form.text_field :shv_number %>
-  </div>
+  </p>
 
-  <div class="field">
+  <p>
     <%= form.label :radio %>
     <%= form.check_box :radio %>
-  </div>
+  </p>
 
-  <div class="field">
-    <%= form.label :glider %>
-    <%= form.text_field :glider %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <%= form.submit %>
 <% end %>
