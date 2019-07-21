@@ -24,6 +24,25 @@
   </p> -->
 
   <p>
+    <%= show_svg 'glider.svg' %>
+  </p>
+
+  <p>
+    <%= form.label :background_color %>
+    <%= form.select :background_color, options_for_select(Glider::COLORS), {include_blank: true}, class: 'glider-color-select', data: {area: 'background'} %>
+  </p>
+
+  <p>
+    <%= form.label :arc_color %>
+    <%= form.select :arc_color, options_for_select(Glider::COLORS), {include_blank: true}, class: 'glider-color-select', data: {area: 'arc'} %>
+  </p>
+
+  <p>
+    <%= form.label :oval_color %>
+    <%= form.select :oval_color, options_for_select(Glider::COLORS), {include_blank: true}, class: 'glider-color-select', data: {area: 'oval'} %>
+  </p>  
+
+  <p>
     <%= form.label :color %>
     <%= form.text_field :color %>
   </p>
