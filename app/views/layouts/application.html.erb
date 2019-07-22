@@ -8,13 +8,19 @@
 </head>
 <body>
 
-<nav>
-  <%= link_to 'Days', days_path %>
-  <%= link_to 'Students', students_path %>
-  <%= link_to 'Gliders', gliders_path %>
-</nav>
+  <div class="container">
+      <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>"><%= value %></div>
+        <% end %>
+  </div>
 
-<%= yield %>
+  <nav>
+    <%= link_to 'Days', days_path %>
+    <%= link_to 'Students', students_path %>
+    <%= link_to 'Gliders', gliders_path %>
+  </nav>
+
+  <%= yield %>
 
 </body>
 </html>

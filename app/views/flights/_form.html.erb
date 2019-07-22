@@ -1,7 +1,7 @@
 <%= form_for @flight do |form| %>
   <%= form.hidden_field(:attendance_id, value: @flight.attendance.id) %>
 
-  <p>Manouvres</p>
+  <p>Manouvres</pT
   <%= form.collection_check_boxes :manoeuvres_array, Flight::MANOUVRES, :to_s, :to_s %>
 
   <p>
