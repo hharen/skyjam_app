@@ -50,7 +50,7 @@
 
   <p>
     <%= form.label :glider_id %>
-    
+
     <%= form.select :glider_id do %>
       <% @gliders.each do |glider| %>
         <option value="<%= glider.id %>" data-student-id="<%= glider.student&.id %>"><%= glider.name %></option>

@@ -1,5 +1,32 @@
 class Flight < ApplicationRecord
-  MANOUVRES = ['Ears', 'Collapse', 'Eight']
+
+  MANOUVRES = [
+    'Erste Höhenflug',
+    'Genussflug',
+    'Kreise',
+    'Steuern mit Gewichtsverlagerung und Kurven',
+    'Positiv / Negativ steuern',
+    'Dynamische Halbkreise',
+    'Ohren',
+    'Seitenklapper',
+    'PP1',
+    'PP2',
+
+    'Rollen/Wingover',
+    'Ohren im Endanflug',
+    'Beschleuniger',
+    'Ohren mit Beschleuniger',
+
+    'Touch & Go',
+    'Landevolte',
+    'Ziellandung',
+
+    'Hangflug',
+    'Thermikflug',
+    'Spiralansatz',
+    'B-Stall',
+    'Frontklapper'
+  ]
 
   belongs_to :attendance
   # belongs_to :student, through: :attendance
@@ -7,7 +34,7 @@ class Flight < ApplicationRecord
 
   def manoeuvres_array
     return [] unless manoeuvres
-    
+
     manoeuvres.split(', ')
   end
 
