@@ -14,13 +14,13 @@ class StudentsController < ApplicationController
   end
 
   def destroy
-
     student = Student.find(params[:id])
-    if student.nil?
-      student.destroy
-    else
-      flash[:error_student_in_use] = "You can't delete this student. He already attended a school day.
+
+    if student.attendances.any?
+      flash[:error_student_in_use] = "You can't delete this student. She or he already attended a school day.
       If you want to delete the student, please delete also the attendances."
+    else
+      student.destroy
     end
 
     redirect_to action: :index
