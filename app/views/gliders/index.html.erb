@@ -3,6 +3,7 @@
 <table>
   <thead>
     <tr>
+      <th>Student</th>
       <th>Type</th>
       <th>Size</th>
       <th>Manufacturer</th>
@@ -10,12 +11,12 @@
       <th>Color</th>
       <th>Serial Number</th>
       <th>Year Manufactured</th>
-      <th>Student</th>
     </tr>
   </thead>
   <tbody>
-    <% @gliders.each do |glider| %>
+    <% @gliders.order(:student_id).each do |glider| %>
       <tr>
+        <td><%= glider.student&.name %></td>
         <td><%= link_to glider.glider_type, glider %></td>
         <td><%= glider.size %></td>
         <td><%= glider.manufacturer %></td>
@@ -23,7 +24,6 @@
         <td><%= glider.color %></td>
         <td><%= glider.serial_number %></td>
         <td><%= glider.year_manufactured %></td>
-        <td><%= glider.student&.name %></td>
         <td><%= button_to 'Delete', glider, method: :delete, confirm: 'Are you sure?' %></td>
         <td><%= link_to 'Edit', edit_glider_path(glider) %></td>
       </tr>
