@@ -14,7 +14,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @gliders.order(:student_id).each do |glider| %>
+    <% Glider.all_sorted_by_student_first_name.each do |glider| %>
       <tr>
         <td><%= glider.student&.name %></td>
         <td><%= link_to glider.glider_type, glider %></td>
