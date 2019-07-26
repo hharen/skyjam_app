@@ -15,12 +15,12 @@
   </p>
 
   <!-- <p>
-    Picture: <%= image_tag(@glider.image_url, width: 100) if @glider.image.present? %>
+    Picture: <%#= image_tag(@glider.image_url, width: 100) if @glider.image.present? %>
   </p> -->
 
   <!-- <p>
-    <%= form.label :image %>
-    <%= form.file_field :image %>
+    <%#= form.label :image %>
+    <%#= form.file_field :image %>
   </p> -->
 
   <p>
@@ -28,19 +28,22 @@
   </p>
 
   <p>
-    <%= form.label :background_color %>
-    <%= form.select :background_color, options_for_select(Glider::COLORS), {include_blank: true}, class: 'glider-color-select', data: {area: 'background'} %>
+    <%= form.label :color_background %>
+    <%= form.select :color_background , options_for_select(Glider::COLORS), {include_blank: true},
+    class: 'glider-color-select', data: {area: 'background'} %>
   </p>
 
   <p>
-    <%= form.label :arc_color %>
-    <%= form.select :arc_color, options_for_select(Glider::COLORS), {include_blank: true}, class: 'glider-color-select', data: {area: 'arc'} %>
+    <%= form.label :color_arc %>
+    <%= form.select :color_arc, options_for_select(Glider::COLORS), {include_blank: true},
+    class: 'glider-color-select', data: {area: 'arc'} %>
   </p>
 
   <p>
-    <%= form.label :oval_color %>
-    <%= form.select :oval_color, options_for_select(Glider::COLORS), {include_blank: true}, class: 'glider-color-select', data: {area: 'oval'} %>
-  </p>  
+    <%= form.label :color_oval %>
+    <%= form.select :color_oval, options_for_select(Glider::COLORS), {include_blank: true},
+    class: 'glider-color-select', data: {area: 'oval'} %>
+  </p>
 
   <p>
     <%= form.label :color %>
