@@ -4,6 +4,7 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>Total flights</th>
       <th>Additional flights</th>
       <th>SHV Number</th>
       <th>Radio</th>
@@ -13,6 +14,7 @@
     <% @students.order(:first_name).each do |student| %>
       <tr>
         <td><%= link_to student.name, student %></td>
+        <td><%= student.total_flights %></td>
         <td><%= student.additional_flights %></td>
         <td><%= student.shv_number %></td>
         <td><%= student.radio %></td>

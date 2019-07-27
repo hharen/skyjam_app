@@ -10,4 +10,5 @@ class Day < ApplicationRecord
   def students_without_attendance
     Student.all - students
   end
+
 end

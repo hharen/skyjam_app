@@ -18,6 +18,8 @@
   <thead>
     <tr>
       <th>Student</th>
+      <th>Flights total</th>
+      <th>Flights until today</th>
       <th>Glider</th>
       <th>Flights</th>
       <th></th>
@@ -28,9 +30,11 @@
       <tr>
 
         <td><%= link_to attendance.student.name, [@day, attendance] %></td>
+        <td><%= attendance.student.total_flights%></td>
+        <td><%= attendance.student.total_flights_until_today(attendance)%></td>
         <td><%= attendance.glider.name%></td>
         <% attendance.flights.each do |flight| %>
-          <td><%= flight.manoeuvres %></td>
+        <td><%= flight.manoeuvres %></td>
         <% end %>
         <td><%= button_to 'Delete', [@day, attendance], method: :delete, confirm: 'Are you sure?' %></td>
       </tr>
