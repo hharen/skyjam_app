@@ -1,4 +1,5 @@
 <%= form_for @glider do |form| %>
+
   <p>
     <%= form.label :glider_type %>
     <%= form.text_field :glider_type %>
@@ -12,6 +13,28 @@
   <p>
     <%= form.label :manufacturer %>
     <%= form.text_field :manufacturer %>
+  </p>
+
+  <p>
+    <%= show_glider_svg @glider %>
+  </p>
+
+  <p>
+    <%= form.label :color_background %>
+    <%= form.select :color_background , options_for_select(Glider::COLORS, @glider.color_background),
+    {include_blank: true}, class: 'glider-color-select', data: {area: 'background'} %>
+  </p>
+
+  <p>
+    <%= form.label :color_arc %>
+    <%= form.select :color_arc, options_for_select(Glider::COLORS, selected=@glider.color_arc),
+    {include_blank: true}, class: 'glider-color-select', data: {area: 'arc'} %>
+  </p>
+
+  <p>
+    <%= form.label :color_oval %>
+    <%= form.select :color_oval, options_for_select(Glider::COLORS, selected=@glider.color_oval),
+    {include_blank: true}, class: 'glider-color-select', data: {area: 'oval'} %>
   </p>
 
   <p>
