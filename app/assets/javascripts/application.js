@@ -15,13 +15,14 @@
 //= require turbolinks
 //= require_tree .
 
+
 var onStudentSelectChange = function(){
   var gliderSelect = document.getElementById('attendance_glider_id');
   var studentSelect = document.getElementById('attendance_student_id')
 
   var studentId = studentSelect.value;
   var availableGliderOptions = gliderSelect.querySelectorAll('option[data-student-id="' + studentId + '"], option[data-student-id=""]');
-  
+
   gliderSelect.querySelectorAll('option').forEach(function(option) {
     option.style.display = 'none';
   });
