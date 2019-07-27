@@ -1,7 +1,7 @@
 module GlidersHelper
-  def show_svg(path)
-    File.open("app/assets/images/#{path}", 'rb') do |file|
-      raw file.read
+  def show_glider_svg(glider)
+    File.open("app/assets/images/glider.svg.erb", 'rb') do |file|
+      ERB.new(file.read).result_with_hash(glider: glider).html_safe
     end
   end
 end

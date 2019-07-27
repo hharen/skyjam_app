@@ -15,13 +15,4 @@ class Glider < ApplicationRecord
   def name
     "#{glider_type} #{size} | #{manufacturer} | #{color}"
   end
-
-  def background_color
-  end
-
-  def arc_color
-  end
-
-  def oval_color
-  end
 end
