@@ -15,11 +15,11 @@ class GlidersController < ApplicationController
 
   def destroy
     glider = Glider.find(params[:id])
-    if glider.nil?
-      glider.destroy
-    else
+    if glider.attendances.any?
       flash[:error_glider_in_use] = "You can't delete this glider. It was already used during the school day.
       If you want to delete it please delete also the attendances."
+    else
+      glider.destroy
     end
     redirect_to action: :index
   end
@@ -41,6 +41,7 @@ class GlidersController < ApplicationController
   private
 
   def glider_params
-    params.require(:glider).permit(:glider_type, :size, :manufacturer, :image, :color, :serial_number, :year_manufactured, :student_id)
+    params.require(:glider).permit(:glider_type, :size, :manufacturer, :image, :color,
+      :serial_number, :year_manufactured, :student_id, :color_background, :color_arc, :color_oval)
   end
 end
