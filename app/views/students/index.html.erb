@@ -11,7 +11,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @students.each do |student| %>
+    <% @students.order(:first_name).each do |student| %>
       <tr>
         <td><%= link_to student.name, student %></td>
         <td><%= student.additional_flights %></td>
@@ -30,3 +30,5 @@
 </table>
 
 <%= link_to 'New student', new_student_path %>
+
+<%= link_to 'Add a new glider', new_glider_path, class: 'btn' %>

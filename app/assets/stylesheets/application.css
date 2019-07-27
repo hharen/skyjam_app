@@ -17,3 +17,7 @@
 label {
   display: inline-block;
 }
+
+.alert {
+  background-color: yellow;
+}
