@@ -5,6 +5,7 @@
     <tr>
       <th>Name</th>
       <th>Additional flights</th>
+      <th>Glider</th>
       <th>SHV Number</th>
       <th>Radio</th>
     </tr>
@@ -14,13 +15,18 @@
       <tr>
         <td><%= link_to student.name, student %></td>
         <td><%= student.additional_flights %></td>
+        <% unless student.gliders.empty? %>
+          <td><%= show_glider_svg student.gliders.last %></td>
+        <% else %>
+          <td></td>
+        <% end %>
         <td><%= student.shv_number %></td>
         <td><%= student.radio %></td>
         <td><%= button_to 'Delete', student, method: :delete, confirm: 'Are you sure?' %></td>
         <td><%= link_to 'Edit', edit_student_path(student) %></td>
       </tr>
     <% end %>
-  </tbody>  
+  </tbody>
 </table>
 
 <%= link_to 'New student', new_student_path %>

@@ -5,8 +5,18 @@
 </p>
 
 <p>
-Glider: <%= @student.gliders.map(&:name).join(", ")  %>
+  Glider: <%= @student.gliders.map(&:name).join(", ") %>
 </p>
+
+<% unless @student.gliders.empty? %>
+  <p>
+    Glider image: <%= show_glider_svg @student.gliders.last %>
+  </p>
+<% else %>
+  <p>
+    Glider color: <%= @student.gliders.map(&:color).join(", ") %>
+  </p>
+<% end %>
 
 <p>
   SHV Number: <%= @student.shv_number %>
@@ -15,3 +25,5 @@ Glider: <%= @student.gliders.map(&:name).join(", ")  %>
 <p>
   Radio: <%= @student.radio %>
 </p>
+
+<%= link_to 'Back to students', students_path %>

@@ -19,6 +19,7 @@
     <tr>
       <th>Student</th>
       <th>Glider</th>
+      <th>Glider image</th>
       <th>Flights</th>
       <th></th>
     </tr>
@@ -29,6 +30,7 @@
 
         <td><%= link_to attendance.student.name, [@day, attendance] %></td>
         <td><%= attendance.glider.name%></td>
+        <td><%= show_glider_svg attendance.glider %></td>
         <% attendance.flights.each do |flight| %>
           <td><%= flight.manoeuvres %></td>
         <% end %>
@@ -50,7 +52,7 @@
 
   <p>
     <%= form.label :glider_id %>
-    
+
     <%= form.select :glider_id do %>
       <% @gliders.each do |glider| %>
         <option value="<%= glider.id %>" data-student-id="<%= glider.student&.id %>"><%= glider.name %></option>

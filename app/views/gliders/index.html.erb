@@ -6,7 +6,7 @@
       <th>Type</th>
       <th>Size</th>
       <th>Manufacturer</th>
-      <!-- <th>Image</th> -->
+      <th>Glider image</th>
       <th>Color</th>
       <th>Serial Number</th>
       <th>Year Manufactured</th>
@@ -19,7 +19,6 @@
         <td><%= link_to glider.glider_type, glider %></td>
         <td><%= glider.size %></td>
         <td><%= glider.manufacturer %></td>
-        <!-- <td><%#= image_tag(glider.image_url, width: 100) if glider.image.present? %></td> -->
         <td><%= show_glider_svg glider %></td>
         <td><%= glider.color %></td>
         <td><%= glider.serial_number %></td>
