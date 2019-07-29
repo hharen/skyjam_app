@@ -47,16 +47,16 @@ var handleStudentSelect = function() {
 
 var onGliderColorChange = function() {
   var area = this.getAttribute('data-area')
-  var paths = document.getElementsByClassName(area);
+  var pathElements = document.getElementsByClassName(area);
 
-  for (let path of paths) {
+  for (let pathElement of pathElements) {
     var color = this.value;
 
     if (color == '') {
       color = 'none'
     }
 
-    path.style.fill = color;
+    pathElement.style.fill = color;
   }
 }
 
