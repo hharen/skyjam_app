@@ -1,2 +1,6 @@
+require("turbolinks").start()
+
 import 'bootstrap'
-import './application.scss'
+import '../gliders/gliders'
+import '../src/main'
+import '../styles/application.scss'
