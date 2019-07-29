@@ -3,16 +3,16 @@ development:
   encoding: unicode
   database: skyjam_development
   pool: 5
-  username: ferdi
-  password:
+  username: skyjam
+  password: skyjam
 
 test:
   adapter: postgresql
   encoding: unicode
   database: skyjam_test
   pool: 5
-  username: ferdi
-  password:
+  username: skyjam
+  password: skyjam
 
 production:
   adapter: postgresql
