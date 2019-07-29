@@ -7,13 +7,17 @@
     <tr>
       <th>Student</th>
       <th>Glider</th>
+      <th>Glider image</th>
       <th></th>
     </tr>
   </thead>
   <tbody>
-        <tr>
+      <tr>
         <td><%= @attendance.student.name %></td>
-        <td><%= @attendance.glider.name%></td>
+        <td><%= @attendance.glider.name %></td>
+        <td>
+          <%= render 'gliders/glider_color', glider: @attendance.glider %>
+        </td>
         <td><%#= button_to 'Delete', [@day, attendance], method: :delete, confirm: 'Are you sure?' %></td>
       </tr>
   </tbody>

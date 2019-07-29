@@ -41,6 +41,7 @@ class GlidersController < ApplicationController
   private
 
   def glider_params
-    params.require(:glider).permit(:glider_type, :size, :manufacturer, :image, :color, :serial_number, :year_manufactured, :student_id)
+    params.require(:glider).permit(:glider_type, :size, :manufacturer, :image, :color,
+      :serial_number, :year_manufactured, :student_id, :color_background, :color_arc, :color_oval)
   end
 end

@@ -6,6 +6,8 @@
       <th>Name</th>
       <th>Total flights</th>
       <th>Additional flights</th>
+      <th>Glider</th>
+      <th>Glider color</th>
       <th>SHV Number</th>
       <th>Radio</th>
     </tr>
@@ -16,6 +18,15 @@
         <td><%= link_to student.name, student %></td>
         <td><%= student.total_flights %></td>
         <td><%= student.additional_flights %></td>
+        <% unless student.gliders.empty? %>
+          <td><%= student.gliders.last.name %></td>
+          <td>
+            <%= render 'gliders/glider_color', glider: student.gliders.last %>
+          </td>
+        <% else %>
+          <td></td>
+          <td></td>
+        <% end %>
         <td><%= student.shv_number %></td>
         <td><%= student.radio %></td>
         <td><%= button_to 'Delete', student, method: :delete, confirm: 'Are you sure?' %></td>
@@ -25,6 +36,9 @@
   </tbody>
 </table>
 
-<%= link_to 'New student', new_student_path %>
+<br>
 
-<%= link_to 'Add a new glider', new_glider_path, class: 'btn' %>
+<%= link_to 'New student', new_student_path %>
+<button type='button' class='btn btn-warning'>
+  <%= link_to 'Add a new glider', new_glider_path %>
+</button>

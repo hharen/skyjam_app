@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_15_184820) do
+ActiveRecord::Schema.define(version: 2019_07_26_120048) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,13 +44,15 @@ ActiveRecord::Schema.define(version: 2019_06_15_184820) do
     t.string "glider_type", null: false
     t.string "size"
     t.string "manufacturer"
-    t.string "image"
     t.string "color"
     t.string "serial_number"
     t.integer "year_manufactured"
     t.integer "student_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "color_background"
+    t.string "color_arc"
+    t.string "color_oval"
   end
 
   create_table "students", force: :cascade do |t|

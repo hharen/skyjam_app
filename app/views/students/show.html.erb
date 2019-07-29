@@ -4,17 +4,14 @@
   Additional flights: <%= @student.additional_flights %>
 </p>
 
-<p>
-  Total flights: <%= @student.total_flights %>
-</p>
 
-<p>
-  Total days attended: <%= @student.count_attendances %>
-</p>
 
-<p>
-Glider: <%= @student.gliders.map(&:name).join(", ")  %>
-</p>
+<% @student.gliders.each do |glider| %>
+  <p>
+    Glider: <%= glider.name %>
+  </p>
+  <p>Glider color:<%= render 'gliders/glider_color', glider: glider %></p>
+<% end %>
 
 <p>
   SHV Number: <%= @student.shv_number %>
@@ -23,3 +20,5 @@ Glider: <%= @student.gliders.map(&:name).join(", ")  %>
 <p>
   Radio: <%= @student.radio %>
 </p>
+
+<%= link_to 'Back to students', students_path %>
