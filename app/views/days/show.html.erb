@@ -34,7 +34,7 @@
         <td><%= link_to attendance.student.name, [@day, attendance] %></td>
         <td><%= attendance.glider.name%></td>
         <td>
-          <%= render 'gliders/glider_color', glider: attendance.glider} %>
+          <%= render 'gliders/glider_color', glider: attendance.glider %>
         </td>
         <% attendance.flights.each do |flight| %>
           <td><%= flight.manoeuvres %></td>
