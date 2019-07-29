@@ -12,10 +12,12 @@
     </tr>
   </thead>
   <tbody>
-        <tr>
+      <tr>
         <td><%= @attendance.student.name %></td>
         <td><%= @attendance.glider.name %></td>
-        <td><%= show_glider_svg @attendance.glider %>
+        <td>
+          <%= render 'gliders/glider_color', glider: @attendance.glider %>
+        </td>
         <td><%#= button_to 'Delete', [@day, attendance], method: :delete, confirm: 'Are you sure?' %></td>
       </tr>
   </tbody>

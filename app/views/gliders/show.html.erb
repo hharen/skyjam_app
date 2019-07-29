@@ -9,9 +9,7 @@
 </p>
 
 <p>
-  Color: <%= @glider.color %>
-  Image: <%= show_glider_svg @glider %>
-
+  Color: <%= render 'gliders/glider_color', glider: @glider %>
 </p>
 
 <p>
@@ -21,3 +19,5 @@
 <p>
   Year Manufactured: <%= @glider.year_manufactured %>
 </p>
+
+<%= link_to 'Back to gliders', gliders_path %>

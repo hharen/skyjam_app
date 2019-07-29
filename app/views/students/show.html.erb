@@ -4,18 +4,13 @@
   Additional flights: <%= @student.additional_flights %>
 </p>
 
-<p>
-  Glider: <%= @student.gliders.map(&:name).join(", ") %>
-</p>
 
-<% unless @student.gliders.empty? %>
+
+<% @student.gliders.each do |glider| %>
   <p>
-    Glider image: <%= show_glider_svg @student.gliders.last %>
+    Glider: <%= glider.name %>
   </p>
-<% else %>
-  <p>
-    Glider color: <%= @student.gliders.map(&:color).join(", ") %>
-  </p>
+  <p>Glider color:<%= render 'gliders/glider_color', glider: glider %></p>
 <% end %>
 
 <p>

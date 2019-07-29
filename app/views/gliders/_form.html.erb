@@ -15,6 +15,11 @@
     <%= form.text_field :manufacturer %>
   </p>
 
+  <div class="form-check">
+  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="glider-picture" checked>
+  <label class="form-check-label" for="exampleRadios1">
+    Select glider colors
+  </label>
   <p>
     <%= show_glider_svg @glider %>
   </p>
@@ -36,11 +41,14 @@
     <%= form.select :color_oval, options_for_select(Glider::COLORS, selected=@glider.color_oval),
     {include_blank: true}, class: 'glider-color-select', data: {area: 'oval'} %>
   </p>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="glider-color">
+  <label class="form-check-label" for="exampleRadios2">
+    Write glider colors <%= form.text_field :color %>
+  </label>
+</div>
 
-  <p>
-    <%= form.label :color %>
-    <%= form.text_field :color %>
-  </p>
 
   <p>
     <%= form.label :serial_number %>
