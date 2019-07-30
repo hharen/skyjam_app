@@ -15,9 +15,10 @@
     <%= form.text_field :manufacturer %>
   </p>
 
+
   <div class="form-check">
-  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="glider-picture" checked>
-  <label class="form-check-label" for="exampleRadios1">
+    <%= form.radio_button :text_color?, false, class: 'form-check-input glider-color-radios', id: 'glider-color-picture-radio', data: {'enabled-class': 'glider-color-select'} %>
+  <label class="form-check-label" for="glider-color-picture-radio">
     Select glider colors
   </label>
   <p>
@@ -43,9 +44,9 @@
   </p>
 </div>
 <div class="form-check">
-  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="glider-color">
-  <label class="form-check-label" for="exampleRadios2">
-    Write glider colors <%= form.text_field :color %>
+  <%= form.radio_button :text_color?, true, class: 'form-check-input glider-color-radios', id: 'glider-color-text-radio', data: {'enabled-class': 'glider-color-text'} %>
+  <label class="form-check-label" for="glider-color-text-radio">
+    Write glider colors <%= form.text_field :color, class: 'glider-color-text' %>
   </label>
 </div>
 
