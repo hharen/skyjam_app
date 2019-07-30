@@ -29,7 +29,18 @@ class GlidersController < ApplicationController
   end
 
   def update
-    Glider.find(params[:id]).update(glider_params)
+    glider = Glider.find(params[:id])
+    glider.update(glider_params)
+
+    if params[:glider][:text_color] == 'true'
+      glider.color_background = nil
+      glider.color_arc = nil
+      glider.color_oval = nil
+    else
+      glider.color = nil
+    end
+
+    glider.save!
 
     redirect_to action: :index
   end
@@ -41,7 +52,7 @@ class GlidersController < ApplicationController
   private
 
   def glider_params
-    params.require(:glider).permit(:glider_type, :size, :manufacturer, :image, :color,
+    params.require(:glider).permit(:glider_type, :size, :manufacturer, :color,
       :serial_number, :year_manufactured, :student_id, :color_background, :color_arc, :color_oval)
   end
 end

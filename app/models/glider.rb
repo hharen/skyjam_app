@@ -20,4 +20,7 @@ class Glider < ApplicationRecord
     all.sort_by { |glider| glider.student&.first_name || '' }
   end
 
+  def text_color?
+    color.present?
+  end
 end
