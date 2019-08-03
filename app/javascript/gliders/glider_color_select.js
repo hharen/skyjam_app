@@ -2,7 +2,7 @@ var updateVisibleState = function() {
   var colorRadios = document.getElementsByClassName('glider-color-radios');
 
   for (let colorRadio of colorRadios) {
-    var visibleClass = colorRadio.getAttribute('data-enabled-class');
+    var visibleClass = colorRadio.getAttribute('data-visible-class');
 
     visibleClassElements = document.getElementsByClassName(visibleClass);
 
