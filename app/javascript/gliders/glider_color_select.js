@@ -7,10 +7,6 @@ var updateVisibleState = function() {
     visibleClassElements = document.getElementsByClassName(visibleClass);
 
     for (let element of visibleClassElements) {
-      element.toggleAttribute('disabled', !colorRadio.checked);
-    }
-
-    for (let element of visibleClassElements) {
       element.style.display = colorRadio.checked ? '' : 'none';
     }
   }

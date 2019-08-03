@@ -15,9 +15,25 @@
     <%= form.text_field :manufacturer %>
   </p>
 
+  <p>
+    <%= form.label :serial_number %>
+    <%= form.text_field :serial_number %>
+  </p>
+
+  <p>
+    <%= form.label :year_manufactured %>
+    <%= form.number_field :year_manufactured, min: 1990, max: 2020 %>
+  </p>
+
+  <p>
+    <%= form.label :student_id %>
+    <%= form.collection_select(:student_id, Student.all, :id, :name, include_blank: 'School glider') %>
+  </p>
+
+  <h3>Glider colors</h3>
 
   <div class="form-check">
-    <%= form.radio_button :text_color?, false, class: 'form-check-input glider-color-radios', id: 'glider-color-picture-radio', data: {'enabled-class': 'glider-color-select'} %>
+    <%= form.radio_button :text_color?, false, class: 'form-check-input glider-color-radios', id: 'glider-color-picture-radio', data: {'visible-class': 'glider-color-select'} %>
   <label class="form-check-label" for="glider-color-picture-radio">
     Select glider colors
   </label>
@@ -44,27 +60,11 @@
   </p>
 </div>
 <div class="form-check">
-  <%= form.radio_button :text_color?, true, class: 'form-check-input glider-color-radios', id: 'glider-color-text-radio', data: {'enabled-class': 'glider-color-text'} %>
+  <%= form.radio_button :text_color?, true, class: 'form-check-input glider-color-radios', id: 'glider-color-text-radio', data: {'visible-class': 'glider-color-text'} %>
   <label class="form-check-label" for="glider-color-text-radio">
     Write glider colors <%= form.text_field :color, class: 'glider-color-text' %>
   </label>
 </div>
-
-
-  <p>
-    <%= form.label :serial_number %>
-    <%= form.text_field :serial_number %>
-  </p>
-
-  <p>
-    <%= form.label :year_manufactured %>
-    <%= form.number_field :year_manufactured, min: 1990, max: 2020 %>
-  </p>
-
-  <p>
-    <%= form.label :student_id %>
-    <%= form.collection_select(:student_id, Student.all, :id, :name, include_blank: 'School glider') %>
-  </p>
 
   <%= form.submit %>
 <% end %>
