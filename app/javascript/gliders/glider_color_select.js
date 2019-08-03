@@ -1,16 +1,17 @@
-var updateEnabledState = function() {
+var updateVisibleState = function() {
   var colorRadios = document.getElementsByClassName('glider-color-radios');
 
   for (let colorRadio of colorRadios) {
-    var enabledClass = colorRadio.getAttribute('data-enabled-class');
+    var visibleClass = colorRadio.getAttribute('data-visible-class');
 
-    enabledClassElements = document.getElementsByClassName(enabledClass);
+    visibleClassElements = document.getElementsByClassName(visibleClass);
 
-    for (let element of enabledClassElements) {
-      element.toggleAttribute('disabled', !colorRadio.checked);
+    for (let element of visibleClassElements) {
+      element.style.display = colorRadio.checked ? '' : 'none';
     }
   }
 }
+
 
 var handleGliderColorRadios = function() {
   var colorRadios = document.getElementsByClassName('glider-color-radios');
@@ -20,12 +21,11 @@ var handleGliderColorRadios = function() {
   }
 
   for (let select of colorRadios) {
-    select.addEventListener('change', updateEnabledState);
+    select.addEventListener('change', updateVisibleState);
   }
 }
 
 document.addEventListener('turbolinks:load', function() {
   handleGliderColorRadios();
-  updateEnabledState();
+  updateVisibleState();
 });
-
