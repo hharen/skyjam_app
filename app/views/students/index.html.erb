@@ -4,8 +4,10 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>Total flights</th>
       <th>Additional flights</th>
       <th>Glider</th>
+      <th>Glider color</th>
       <th>SHV Number</th>
       <th>Radio</th>
     </tr>
@@ -14,10 +16,15 @@
     <% @students.order(:first_name).each do |student| %>
       <tr>
         <td><%= link_to student.name, student %></td>
+        <td><%= student.total_flights %></td>
         <td><%= student.additional_flights %></td>
         <% unless student.gliders.empty? %>
-          <td><%= show_glider_svg student.gliders.last %></td>
+          <td><%= student.gliders.last.name %></td>
+          <td>
+            <%= render 'gliders/glider_color', glider: student.gliders.last %>
+          </td>
         <% else %>
+          <td></td>
           <td></td>
         <% end %>
         <td><%= student.shv_number %></td>
@@ -29,6 +36,9 @@
   </tbody>
 </table>
 
-<%= link_to 'New student', new_student_path %>
+<br>
 
-<%= link_to 'Add a new glider', new_glider_path, class: 'btn' %>
+<%= link_to 'New student', new_student_path %>
+<button type='button' class='btn btn-warning'>
+  <%= link_to 'Add a new glider', new_glider_path %>
+</button>

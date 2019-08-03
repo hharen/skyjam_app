@@ -7,8 +7,7 @@
       <th>Type</th>
       <th>Size</th>
       <th>Manufacturer</th>
-      <th>Glider image</th>
-      <th>Color</th>
+      <th>Glider color</th>
       <th>Serial Number</th>
       <th>Year Manufactured</th>
     </tr>
@@ -20,8 +19,7 @@
         <td><%= link_to glider.glider_type, glider %></td>
         <td><%= glider.size %></td>
         <td><%= glider.manufacturer %></td>
-        <td><%= show_glider_svg glider %></td>
-        <td><%= glider.color %></td>
+        <td><%= render 'gliders/glider_color', glider: glider %></td>
         <td><%= glider.serial_number %></td>
         <td><%= glider.year_manufactured %></td>
         <td><%= button_to 'Delete', glider, method: :delete, confirm: 'Are you sure?' %></td>
