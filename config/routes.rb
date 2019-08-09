@@ -10,9 +10,11 @@ Rails.application.routes.draw do
 
   resources :students do
     resources :gliders
+    resources :additional_flights
   end
 
   resources :gliders
 
   resources :flights
+
 end

@@ -2,6 +2,7 @@ class Student < ApplicationRecord
   has_many :attendances, dependent: :destroy
   has_many :gliders, dependent: :destroy
   has_many :flights, through: :attendance
+  has_many :additional_flights
 
   def name
     [first_name, middle_name, last_name].reject(&:blank?).join(' ')
