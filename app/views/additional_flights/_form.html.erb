@@ -1,0 +1,16 @@
+<%= form_for [@student, @additional_flight] do |form| %>
+
+  <p>
+    <%= form.label :date %>
+    <%= form.date_field :date %>
+  </p>
+
+    <%= form.hidden_field :student_id %>
+
+    <p>
+      <%= form.label :number_of_additional_flights %>
+      <%= form.number_field :number_of_additional_flights %>
+    </p>
+
+  <%= form.submit %>
+<% end %>

@@ -16,7 +16,7 @@ class Student < ApplicationRecord
        all_flights << attendance.flights.count
       end
     end
-    self.additional_flights + all_flights.sum
+    self.additional_flights.count + all_flights.sum
   end
 
   def total_flights
@@ -24,7 +24,7 @@ class Student < ApplicationRecord
     self.attendances.each do |attendance|
        all_flights << attendance.flights.count
     end
-    self.additional_flights + all_flights.sum
+    self.additional_flights.count + all_flights.sum
   end
 
   def count_attendances
