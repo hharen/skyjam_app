@@ -1,13 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+day1:
   date: 2019-01-28
-  instructor: MyString
-  assistant: MyString
-  takeoff: MyString
-
-two:
-  date: 2019-01-28
-  instructor: MyString
-  assistant: MyString
-  takeoff: MyString
+  instructor: Markus
+  assistant: Delf
+  takeoff: Schrot

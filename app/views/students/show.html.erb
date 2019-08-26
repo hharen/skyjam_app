@@ -1,11 +1,11 @@
 <h1><%= @student.name %></h1>
 
 <p>
-  Additional flights: <%= @student.additional_flights.count %>
+  Total flights: <%= @student.total_flights %>
 </p>
 
 <p>
-  Additional flights new: <%= @student.additional_flights.all %>
+  <%= link_to "See flights", flights_student_path(@student) %>
 </p>
 
 <h2>Create additional flights:</h2>

@@ -1,0 +1,23 @@
+<h1>Flights for student<h1>
+
+  <h3>Flights</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Flight Nr.</th>
+        <th>Manouvres</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @student.flights.each_with_index do |flight, index| %>
+          <tr>
+          <td><%= index + 1 %></td>
+          <td><%= flight.date %></td>
+          <td><%= button_to 'Edit', edit_flight_path(flight), method: :get %></td>
+          <td><%= button_to 'Delete', flight, method: :delete %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>

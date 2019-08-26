@@ -41,6 +41,10 @@ class StudentsController < ApplicationController
     @additional_flight = AdditionalFlight.new(student: @student)
   end
 
+  def flights
+    @student = Student.find(params[:id])
+  end
+
   private
 
   def student_params

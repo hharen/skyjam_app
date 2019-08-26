@@ -1,7 +1,7 @@
 class Student < ApplicationRecord
   has_many :attendances, dependent: :destroy
   has_many :gliders, dependent: :destroy
-  has_many :flights, through: :attendance
+  has_many :flights, through: :attendances
   has_many :additional_flights
 
   def name
@@ -20,11 +20,10 @@ class Student < ApplicationRecord
   end
 
   def total_flights
-    all_flights = []
-    self.attendances.each do |attendance|
-       all_flights << attendance.flights.count
-    end
-    self.additional_flights.count + all_flights.sum
+    flight_count = self.flights.count
+    additional_flight_count = self.additional_flights.pluck(:number_of_additional_flights).sum
+
+    flight_count + additional_flight_count
   end
 
   def count_attendances
