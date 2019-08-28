@@ -10,17 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_09_053915) do
+ActiveRecord::Schema.define(version: 2019_08_28_162539) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "additional_flights", force: :cascade do |t|
-    t.integer "number_of_additional_flights", null: false
     t.date "date"
     t.integer "student_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "notes"
   end
 
   create_table "attendances", force: :cascade do |t|

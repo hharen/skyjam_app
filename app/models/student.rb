@@ -21,9 +21,16 @@ class Student < ApplicationRecord
 
   def total_flights
     flight_count = self.flights.count
-    additional_flight_count = self.additional_flights.pluck(:number_of_additional_flights).sum
+    additional_flight_count = self.additional_flights.count
 
     flight_count + additional_flight_count
+  end
+
+  def all_flights
+    all_flights = []
+    all_flights += self.flights
+    all_flights += self.additional_flights
+    all_flights.sort_by(&:date) #stands for { |flight| flight.date}
   end
 
   def count_attendances

@@ -1,9 +1,11 @@
 class AdditionalFlightsController < ApplicationController
   def create
-    additional_flight = AdditionalFlight.new(additional_flight_params)
-    additional_flight.save!
+    params[:additional_flight][:number_of_additional_flights].to_i.times do
+      additional_flight = AdditionalFlight.new(additional_flight_params)
+      additional_flight.save!
+    end
 
-    student = additional_flight.student
+    student = Student.find(additional_flight_params[:student_id])
 
     redirect_to [student]
   end
@@ -17,7 +19,7 @@ class AdditionalFlightsController < ApplicationController
     additional_flight = AdditionalFlight.find(params[:id])
     additional_flight.destroy
 
-    redirect_to [student]
+    redirect_to request.referrer
   end
 
   def edit
@@ -27,6 +29,6 @@ class AdditionalFlightsController < ApplicationController
   private
 
   def additional_flight_params
-    params.require(:additional_flight).permit(:student_id, :date, :number_of_additional_flights)
+    params.require(:additional_flight).permit(:student_id, :date, :notes)
   end
 end
