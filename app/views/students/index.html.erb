@@ -5,7 +5,6 @@
     <tr>
       <th>Name</th>
       <th>Total flights</th>
-      <th>Additional flights</th>
       <th>Glider</th>
       <th>Glider color</th>
       <th>SHV Number</th>
@@ -17,7 +16,6 @@
       <tr>
         <td><%= link_to student.name, student %></td>
         <td><%= student.total_flights %></td>
-        <td><%= student.additional_flights %></td>
         <% unless student.gliders.empty? %>
           <td><%= student.gliders.last.name %></td>
           <td>
