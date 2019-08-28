@@ -1,16 +1,26 @@
 <h1><%= @student.name %></h1>
 
 <p>
-  Additional flights: <%= @student.additional_flights %>
+  Total flights: <%= @student.total_flights %>
 </p>
 
+<p>
+  <%= link_to "See flights", flights_student_path(@student) %>
+</p>
+
+<h2>Create additional flights:</h2>
+
+<%= render partial: 'additional_flights/form' %>
 
 
 <% @student.gliders.each do |glider| %>
   <p>
     Glider: <%= glider.name %>
   </p>
-  <p>Glider color:<%= render 'gliders/glider_color', glider: glider %></p>
+
+  <p>
+    Glider color:<%= render 'gliders/glider_color', glider: glider %>
+  </p>
 <% end %>
 
 <p>

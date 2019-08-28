@@ -18,7 +18,7 @@
         <td>
           <%= render 'gliders/glider_color', glider: @attendance.glider %>
         </td>
-        <td><%#= button_to 'Delete', [@day, attendance], method: :delete, confirm: 'Are you sure?' %></td>
+        <td><%= button_to 'Delete', [@attendance.day, @attendance], method: :delete, confirm: 'Are you sure?' %></td>
       </tr>
   </tbody>
 </table>

@@ -38,6 +38,11 @@ class StudentsController < ApplicationController
 
   def show
     @student = Student.find(params[:id])
+    @additional_flight = AdditionalFlight.new(student: @student)
+  end
+
+  def flights
+    @student = Student.find(params[:id])
   end
 
   private

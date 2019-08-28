@@ -29,8 +29,11 @@ class Flight < ApplicationRecord
   ]
 
   belongs_to :attendance
-  # belongs_to :student, through: :attendance
-  # belongs_to :day, through: :attendance
+  has_one :day, through: :attendance
+
+  def date
+    day.date
+  end
 
   def manoeuvres_array
     return [] unless manoeuvres
