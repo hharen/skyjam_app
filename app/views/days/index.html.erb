@@ -10,7 +10,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @days.each do |day| %>
+    <% @days.order(:date).reverse.each do |day| %>
       <tr>
         <td><%= link_to day.date, day %></td>
         <td><%= day.instructor %></td>
