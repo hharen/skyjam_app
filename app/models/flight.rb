@@ -2,7 +2,11 @@ class Flight < ApplicationRecord
 
   MANOUVRES = [
     'Erste Höhenflug',
+
     'Genussflug',
+    'Hangflug',
+    'Thermikflug',
+
     'Kreise',
     'Steuern mit Gewichtsverlagerung und Kurven',
     'Positiv / Negativ steuern',
@@ -12,20 +16,19 @@ class Flight < ApplicationRecord
     'PP1',
     'PP2',
 
+    'Nicken',
     'Rollen/Wingover',
-    'Ohren im Endanflug',
     'Beschleuniger',
     'Ohren mit Beschleuniger',
 
-    'Touch & Go',
-    'Landevolte',
-    'Ziellandung',
-
-    'Hangflug',
-    'Thermikflug',
     'Spiralansatz',
     'B-Stall',
     'Frontklapper'
+
+    'Touch & Go',
+    'Landevolte',
+    'Ohren im Endanflug',
+    'Ziellandung',
   ]
 
   belongs_to :attendance
