@@ -23,7 +23,7 @@ class Flight < ApplicationRecord
 
     'Spiralansatz',
     'B-Stall',
-    'Frontklapper'
+    'Frontklapper',
 
     'Touch & Go',
     'Landevolte',
