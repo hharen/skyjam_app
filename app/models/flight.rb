@@ -28,7 +28,7 @@ class Flight < ApplicationRecord
     'Touch & Go',
     'Landevolte',
     'Ohren im Endanflug',
-    'Ziellandung',
+    'Ziellandung'
   ]
 
   belongs_to :attendance
