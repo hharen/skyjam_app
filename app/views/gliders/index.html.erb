@@ -1,5 +1,7 @@
  <h1>Gliders</h1>
 
+<%= link_to 'New glider', new_glider_path, class: 'btn btn-primary' %>
+
 <table>
   <thead>
     <tr>
@@ -22,11 +24,11 @@
         <td><%= render 'gliders/glider_color', glider: glider %></td>
         <td><%= glider.serial_number %></td>
         <td><%= glider.year_manufactured %></td>
-        <td><%= button_to 'Delete', glider, method: :delete, confirm: 'Are you sure?' %></td>
-        <td><%= link_to 'Edit', edit_glider_path(glider) %></td>
+        <td><%= button_to 'Delete', glider, method: :delete, confirm: 'Are you sure?', class: 'btn btn-danger' %></td>
+        <td><%= link_to 'Edit', edit_glider_path(glider), class: 'btn btn-warning' %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to 'New glider', new_glider_path %>
+<%= link_to 'New glider', new_glider_path, class: 'btn btn-primary' %>
