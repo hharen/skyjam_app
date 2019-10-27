@@ -12,45 +12,7 @@
   Take-off: <%= @day.takeoff %>
 </p>
 
-<h2>Attendances</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th>Student</th>
-      <th>Flights total</th>
-      <th>Flights until today</th>
-      <th>Glider</th>
-      <th>Glider image</th>
-      <th>Flight 1</th>
-      <th>Flight 2</th>
-      <th>Flight 3</th>
-      <th>Flight 4</th>
-      <th>Flight 5</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @day.attendances.each do |attendance| %>
-      <tr>
-        <td><%= link_to attendance.student.name, [@day, attendance] %></td>
-        <td><%= attendance.student.total_flights%></td>
-        <td><%= attendance.student.total_flights_until_today(attendance)%></td>
-        <td><%= attendance.glider.name%></td>
-        <td>
-          <%= render 'gliders/glider_color', glider: attendance.glider %>
-        </td>
-        <% attendance.flights.each do |flight| %>
-        <td><%= flight.manoeuvres %></td>
-        <% end %>
-        <% (5 - attendance.flights.size).times do |i| %>
-          <td></td>
-        <% end %>
-        <td><%= button_to 'Delete', [@day, attendance], method: :delete, confirm: 'Are you sure?' %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<hr>
 
 <h2>Create attendance</h2>
 
@@ -72,5 +34,53 @@
     <% end %>
   </p>
 
-  <%= form.submit %>
+  <%= form.submit 'Create an attendance', class: "btn btn-primary" %>
 <% end %>
+
+<hr>
+
+<h2>Attendances</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Student</th>
+      <th>Flights total</th>
+      <th>Flights until today</th>
+      <th>Glider</th>
+      <th>Glider image</th>
+      <th>SHV No.</th>
+      <th>Flight 1</th>
+      <th>Flight 2</th>
+      <th>Flight 3</th>
+      <th>Flight 4</th>
+      <th>Flight 5</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @day.attendances.order(:student_id).each_with_index do |attendance, index| %>
+      <tr>
+        <td><%= index + 1 %></td>
+        <td><%= link_to attendance.student.name, [@day, attendance] %></td>
+        <td><%= attendance.student.total_flights%></td>
+        <td><%= attendance.student.total_flights_until_today(attendance)%></td>
+        <td><%= attendance.glider.name%></td>
+        <td>
+          <%= render 'gliders/glider_color', glider: attendance.glider %>
+        </td>
+        <td><%= attendance.student.shv_number %></td>
+        <% attendance.flights.each do |flight| %>
+        <td><%= flight.manoeuvres %></td>
+        <% end %>
+        <% (5 - attendance.flights.size).times do |i| %>
+          <td></td>
+        <% end %>
+        <td><%= button_to 'Delete', [@day, attendance], method: :delete, confirm: 'Are you sure?' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New day', new_day_path, class: "btn btn-primary" %>
