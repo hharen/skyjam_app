@@ -14,31 +14,6 @@
 
 <hr>
 
-<h2>Create attendance</h2>
-
-<%= form_for [@day, @attendance] do |form| %>
-  <%= form.hidden_field :day_id %>
-
-  <p>
-    <%= form.label :student_id %>
-    <%= form.collection_select(:student_id, @students_without_attendance, :id, :name) %>
-  </p>
-
-  <p>
-    <%= form.label :glider_id %>
-
-    <%= form.select :glider_id do %>
-      <% @gliders.each do |glider| %>
-        <option value="<%= glider.id %>" data-student-id="<%= glider.student&.id %>"><%= glider.name %></option>
-      <% end %>
-    <% end %>
-  </p>
-
-  <%= form.submit 'Create an attendance', class: "btn btn-primary" %>
-<% end %>
-
-<hr>
-
 <h2>Attendances</h2>
 
 <table>
@@ -82,5 +57,32 @@
     <% end %>
   </tbody>
 </table>
+
+<hr>
+
+<h2>Create attendance</h2>
+
+<%= form_for [@day, @attendance] do |form| %>
+  <%= form.hidden_field :day_id %>
+
+  <p>
+    <%= form.label :student_id %>
+    <%= form.collection_select(:student_id, @students_without_attendance, :id, :name) %>
+  </p>
+
+  <p>
+    <%= form.label :glider_id %>
+
+    <%= form.select :glider_id do %>
+      <% @gliders.each do |glider| %>
+        <option value="<%= glider.id %>" data-student-id="<%= glider.student&.id %>"><%= glider.name %></option>
+      <% end %>
+    <% end %>
+  </p>
+
+  <%= form.submit 'Create an attendance', class: "btn btn-primary" %>
+<% end %>
+
+<br>
 
 <%= link_to 'New day', new_day_path, class: "btn btn-primary" %>
