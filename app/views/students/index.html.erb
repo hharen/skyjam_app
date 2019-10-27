@@ -1,6 +1,7 @@
 <h1>Students</h1>
 
-<%= link_to 'Create new student', new_student_path, class: 'btn btn-warning' %>
+<%= link_to 'New student', new_student_path, class: 'btn btn-primary' %>
+<%= link_to 'New glider', new_glider_path, class: 'btn btn-primary' %>
 
 <table>
   <thead>
@@ -29,9 +30,8 @@
         <% end %>
         <td><%= student.shv_number %></td>
         <td><%= student.radio %></td>
-        <td><%= button_to 'Delete', student, method: :delete, confirm: 'Are you sure?' %></td>
-        <td><%= button_to 'Delete', student, method: :delete, confirm: 'Are you sure?' %></td>
-        <td><%= link_to 'Edit', edit_student_path(student) %></td>
+        <td><%= button_to 'Delete', student, method: :delete, confirm: 'Are you sure?', class: 'btn btn-danger' %></td>
+        <td><%= link_to 'Edit', edit_student_path(student), class: 'btn btn-warning' %></td>
       </tr>
     <% end %>
   </tbody>
@@ -39,5 +39,5 @@
 
 <br>
 
-<%= link_to 'Create new student', new_student_path, class: 'btn btn-primary' %>
-<%= link_to 'Add a new glider', new_glider_path, class: 'btn btn-primary' %>
+<%= link_to 'New student', new_student_path, class: 'btn btn-primary' %>
+<%= link_to 'New glider', new_glider_path, class: 'btn btn-primary' %>
