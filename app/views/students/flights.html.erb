@@ -13,12 +13,9 @@
     </thead>
     <tbody>
       <% @student.all_flights.each_with_index do |flight, index| %>
-
-      <%# this doesn't work yet %>
-      <%# <% @student.all_flights.order(flight: :date).each_with_index do |flight, index| %>
           <tr>
           <td><%= index + 1 %></td>
-          <td><%= flight.date %></td>
+          <td><%= l(flight.date) %></td>
           <td><%= flight.manoeuvres %></td>
           <td><%= flight.notes %></td>
           <td><%= button_to 'Edit', edit_flight_path(flight), method: :get %></td>

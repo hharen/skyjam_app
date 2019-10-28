@@ -1,88 +1,92 @@
-<h1><%= @day.date %></h1>
+<h1><%= l @day.date %></h1>
 
-<p>
-  Instructor: <%= @day.instructor %>
+<p class='d-print-inline'>
+  Instructor: <strong><%= @day.instructor %></strong>
 </p>
 
-<p>
-  Assistant: <%= @day.assistant %>
+<p class='d-print-inline'>
+  Assistant: <strong><%= @day.assistant %></strong>
 </p>
 
-<p>
-  Take-off: <%= @day.takeoff %>
+<p class='d-print-inline'>
+  Take-off: <strong><%= @day.takeoff %></strong>
 </p>
+
 
 <hr>
 
 <h2>Attendances</h2>
 
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th>Student</th>
-      <th>Flights total</th>
-      <th>Flights until today</th>
-      <th>Glider</th>
-      <th>Glider image</th>
-      <th>SHV No.</th>
-      <th>Flight 1</th>
-      <th>Flight 2</th>
-      <th>Flight 3</th>
-      <th>Flight 4</th>
-      <th>Flight 5</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @day.attendances.order(:student_id).each_with_index do |attendance, index| %>
+<div class='table-responsive'>
+  <table class='table table-striped table-sm table-attendances'>
+    <thead class='thead-light'>
       <tr>
-        <td><%= index + 1 %></td>
-        <td><%= link_to attendance.student.name, [@day, attendance] %></td>
-        <td><%= attendance.student.total_flights%></td>
-        <td><%= attendance.student.total_flights_until_today(attendance)%></td>
-        <td><%= attendance.glider.name%></td>
-        <td>
-          <%= render 'gliders/glider_color', glider: attendance.glider %>
-        </td>
-        <td><%= attendance.student.shv_number %></td>
-        <% attendance.flights.each do |flight| %>
-        <td><%= flight.manoeuvres %></td>
-        <% end %>
-        <% (5 - attendance.flights.size).times do |i| %>
-          <td></td>
-        <% end %>
-        <td><%= button_to 'Delete', [@day, attendance], method: :delete, confirm: 'Are you sure?' %></td>
+        <th>#</th>
+        <th>Student</th>
+        <th>Flights total</th>
+        <th>Flights until today</th>
+        <th>Glider</th>
+        <th>Glider image</th>
+        <th>SHV No.</th>
+        <th>Flight 1</th>
+        <th>Flight 2</th>
+        <th>Flight 3</th>
+        <th>Flight 4</th>
+        <th>Flight 5</th>
+        <th class='d-print-none'></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-
+    </thead>
+    <tbody>
+      <% @day.attendances.order(:student_id).each_with_index do |attendance, index| %>
+        <tr>
+          <td><%= index + 1 %></td>
+          <td><%= link_to attendance.student.name, [@day, attendance] %></td>
+          <td><%= attendance.student.total_flights%></td>
+          <td><%= attendance.student.total_flights_until_today(attendance)%></td>
+          <td><%= attendance.glider.name%></td>
+          <td>
+            <%= render 'gliders/glider_color', glider: attendance.glider %>
+          </td>
+          <td><%= attendance.student.shv_number %></td>
+          <% attendance.flights.each do |flight| %>
+          <td><%= flight.manoeuvres %></td>
+          <% end %>
+          <% (5 - attendance.flights.size).times do |i| %>
+            <td></td>
+          <% end %>
+          <td class='d-print-none'><%= button_to 'Delete', [@day, attendance], method: :delete, confirm: 'Are you sure?', class: 'btn btn-danger' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 <hr>
 
-<h2>Create attendance</h2>
+<div class='d-print-none'>
+  <h2>Create attendance</h2>
 
-<%= form_for [@day, @attendance] do |form| %>
-  <%= form.hidden_field :day_id %>
+  <%= form_for [@day, @attendance] do |form| %>
+    <%= form.hidden_field :day_id %>
 
-  <p>
-    <%= form.label :student_id %>
-    <%= form.collection_select(:student_id, @students_without_attendance, :id, :name) %>
-  </p>
+    <p>
+      <%= form.label :student_id %>
+      <%= form.collection_select(:student_id, @students_without_attendance, :id, :name) %>
+    </p>
 
-  <p>
-    <%= form.label :glider_id %>
+    <p>
+      <%= form.label :glider_id %>
 
-    <%= form.select :glider_id do %>
-      <% @gliders.each do |glider| %>
-        <option value="<%= glider.id %>" data-student-id="<%= glider.student&.id %>"><%= glider.name %></option>
+      <%= form.select :glider_id do %>
+        <% @gliders.each do |glider| %>
+          <option value="<%= glider.id %>" data-student-id="<%= glider.student&.id %>"><%= glider.name %></option>
+        <% end %>
       <% end %>
-    <% end %>
-  </p>
+    </p>
 
-  <%= form.submit 'Create an attendance', class: "btn btn-primary" %>
-<% end %>
+    <%= form.submit 'Create an attendance', class: "btn btn-primary" %>
+  <% end %>
 
-<br>
+  <br>
 
-<%= link_to 'New day', new_day_path, class: "btn btn-primary" %>
+  <%= link_to 'New day', new_day_path, class: "btn btn-primary" %>
+</div>
