@@ -30,7 +30,7 @@ class Student < ApplicationRecord
     all_flights = []
     all_flights += self.flights
     all_flights += self.additional_flights
-    all_flights.sort_by(&:date) #stands for { |flight| flight.date}
+    all_flights.sort_by(&:date).reverse #stands for { |flight| flight.date}
   end
 
   def count_attendances

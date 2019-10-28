@@ -36,3 +36,8 @@ en:
   models:
     additional_flights:
       notes: "Notes"
+
+en:
+  time:
+    formats:
+      default: '%d.%m.%y'
