@@ -1,16 +1,17 @@
 <h1><%= @day.date %></h1>
 
-<p>
-  Instructor: <%= @day.instructor %>
+<p class='d-print-inline'>
+  Instructor: <strong><%= @day.instructor %></strong>
 </p>
 
-<p>
-  Assistant: <%= @day.assistant %>
+<p class='d-print-inline'>
+  Assistant: <strong><%= @day.assistant %></strong>
 </p>
 
-<p>
-  Take-off: <%= @day.takeoff %>
+<p class='d-print-inline'>
+  Take-off: <strong><%= @day.takeoff %></strong>
 </p>
+
 
 <hr>
 
@@ -32,7 +33,7 @@
         <th>Flight 3</th>
         <th>Flight 4</th>
         <th>Flight 5</th>
-        <th></th>
+        <th class='d-print-none'></th>
       </tr>
     </thead>
     <tbody>
@@ -53,7 +54,7 @@
           <% (5 - attendance.flights.size).times do |i| %>
             <td></td>
           <% end %>
-          <td><%= button_to 'Delete', [@day, attendance], method: :delete, confirm: 'Are you sure?', class: 'btn btn-danger' %></td>
+          <td class='d-print-none'><%= button_to 'Delete', [@day, attendance], method: :delete, confirm: 'Are you sure?', class: 'btn btn-danger' %></td>
         </tr>
       <% end %>
     </tbody>
@@ -61,29 +62,31 @@
 </div>
 <hr>
 
-<h2>Create attendance</h2>
+<div class='d-print-none'>
+  <h2>Create attendance</h2>
 
-<%= form_for [@day, @attendance] do |form| %>
-  <%= form.hidden_field :day_id %>
+  <%= form_for [@day, @attendance] do |form| %>
+    <%= form.hidden_field :day_id %>
 
-  <p>
-    <%= form.label :student_id %>
-    <%= form.collection_select(:student_id, @students_without_attendance, :id, :name) %>
-  </p>
+    <p>
+      <%= form.label :student_id %>
+      <%= form.collection_select(:student_id, @students_without_attendance, :id, :name) %>
+    </p>
 
-  <p>
-    <%= form.label :glider_id %>
+    <p>
+      <%= form.label :glider_id %>
 
-    <%= form.select :glider_id do %>
-      <% @gliders.each do |glider| %>
-        <option value="<%= glider.id %>" data-student-id="<%= glider.student&.id %>"><%= glider.name %></option>
+      <%= form.select :glider_id do %>
+        <% @gliders.each do |glider| %>
+          <option value="<%= glider.id %>" data-student-id="<%= glider.student&.id %>"><%= glider.name %></option>
+        <% end %>
       <% end %>
-    <% end %>
-  </p>
+    </p>
 
-  <%= form.submit 'Create an attendance', class: "btn btn-primary" %>
-<% end %>
+    <%= form.submit 'Create an attendance', class: "btn btn-primary" %>
+  <% end %>
 
-<br>
+  <br>
 
-<%= link_to 'New day', new_day_path, class: "btn btn-primary" %>
+  <%= link_to 'New day', new_day_path, class: "btn btn-primary" %>
+</div>
