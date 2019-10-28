@@ -13,9 +13,6 @@
     </thead>
     <tbody>
       <% @student.all_flights.each_with_index do |flight, index| %>
-
-      <%# this doesn't work yet %>
-      <%# <% @student.all_flights.order(flight: :date).each_with_index do |flight, index| %>
           <tr>
           <td><%= index + 1 %></td>
           <td><%= l(flight.date) %></td>
