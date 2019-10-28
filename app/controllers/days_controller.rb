@@ -32,7 +32,6 @@ class DaysController < ApplicationController
   def show
     @day = Day.find(params[:id])
     @attendance = Attendance.new(day: @day)
-    @attendances = @day.attendances.sort_by { |attendance| attendance.student.first_name  }
     @students_without_attendance = @day.students_without_attendance
     @gliders = Glider.student_gliders + Glider.school_gliders
   end
