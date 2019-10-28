@@ -37,7 +37,7 @@
       </tr>
     </thead>
     <tbody>
-      <% @day.attendances.order(:student_id).each_with_index do |attendance, index| %>
+      <% @attendances.each_with_index do |attendance, index| %>
         <tr>
           <td><%= index + 1 %></td>
           <td><%= link_to attendance.student.name, [@day, attendance] %></td>

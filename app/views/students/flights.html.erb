@@ -12,7 +12,7 @@
       </tr>
     </thead>
     <tbody>
-      <% @student.all_flights.each_with_index do |flight, index| %>
+      <% @student.all_flights.order(:date).each_with_index do |flight, index| %>
 
       <%# this doesn't work yet %>
       <%# <% @student.all_flights.order(flight: :date).each_with_index do |flight, index| %>
