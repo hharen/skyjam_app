@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Skyjam</title>
+  <title>Skyjam App</title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
   <%= stylesheet_pack_tag 'application', media: 'all'  %>
   <%= javascript_pack_tag 'application' %>
+
 </head>
 <body>
 
@@ -16,7 +17,7 @@
         <% end %>
   </div>
 
-  <nav>
+  <nav class='d-print-none'>
     <%= link_to 'Days', days_path %>
     <%= link_to 'Students', students_path %>
     <%= link_to 'Gliders', gliders_path %>

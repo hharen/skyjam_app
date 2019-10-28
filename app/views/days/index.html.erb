@@ -13,7 +13,7 @@
     <tbody>
       <% @days.order(:date).reverse.each do |day| %>
         <tr>
-          <td><%= link_to day.date, day %></td>
+          <td><%= link_to l(day.date), day %></td>
           <td><%= day.instructor %></td>
           <td><%= day.assistant %></td>
           <td><%= day.takeoff %></td>

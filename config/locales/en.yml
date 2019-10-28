@@ -37,7 +37,6 @@ en:
     additional_flights:
       notes: "Notes"
 
-en:
-  time:
+  date:
     formats:
-      default: '%d.%m.%y'
+      default: '%d.%m.%Y'
