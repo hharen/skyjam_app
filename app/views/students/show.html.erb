@@ -1,16 +1,10 @@
 <h1><%= @student.name %></h1>
 
 <p>
-  Total flights: <%= @student.total_flights %>
-</p>
+  Total flights: <%= @student.total_flights %> =>
 
-<p>
   <%= link_to "See flights", flights_student_path(@student) %>
 </p>
-
-<h2>Create additional flights:</h2>
-
-<%= render partial: 'additional_flights/form' %>
 
 
 <% @student.gliders.each do |glider| %>
@@ -31,4 +25,8 @@
   Radio: <%= @student.radio %>
 </p>
 
-<%= link_to 'Back to students', students_path %>
+<%= link_to 'Back to students', students_path, class: 'btn btn-primary' %>
+
+<h2>Create additional flights:</h2>
+
+<%= render partial: 'additional_flights/form' %>
