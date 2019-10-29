@@ -2,33 +2,37 @@
 
 <%= link_to 'New glider', new_glider_path, class: 'btn btn-primary' %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Student</th>
-      <th>Type</th>
-      <th>Size</th>
-      <th>Manufacturer</th>
-      <th>Glider color</th>
-      <th>Serial Number</th>
-      <th>Year Manufactured</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% Glider.all_sorted_by_student_first_name.each do |glider| %>
+<div class='table-responsive'>
+  <table class='table table-fit table-sm table-striped'>
+    <thead class='thead-light'>
       <tr>
-        <td><%= glider.student&.name %></td>
-        <td><%= link_to glider.glider_type, glider %></td>
-        <td><%= glider.size %></td>
-        <td><%= glider.manufacturer %></td>
-        <td><%= render 'gliders/glider_color', glider: glider %></td>
-        <td><%= glider.serial_number %></td>
-        <td><%= glider.year_manufactured %></td>
-        <td><%= button_to 'Delete', glider, method: :delete, confirm: 'Are you sure?', class: 'btn btn-danger' %></td>
-        <td><%= link_to 'Edit', edit_glider_path(glider), class: 'btn btn-warning' %></td>
+        <th>Student</th>
+        <th>Type</th>
+        <th>Size</th>
+        <th>Manufacturer</th>
+        <th>Glider color</th>
+        <th>Serial Number</th>
+        <th>Year Manufactured</th>
+        <th></th>
+        <th></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% Glider.all_sorted_by_student_first_name.each do |glider| %>
+        <tr>
+          <td><%= glider.student&.name %></td>
+          <td><%= link_to glider.glider_type, glider %></td>
+          <td><%= glider.size %></td>
+          <td><%= glider.manufacturer %></td>
+          <td><%= render 'gliders/glider_color', glider: glider %></td>
+          <td><%= glider.serial_number %></td>
+          <td><%= glider.year_manufactured %></td>
+          <td><%= link_to 'Edit', edit_glider_path(glider), class: 'btn btn-warning' %></td>
+          <td><%= button_to 'Delete', glider, method: :delete, confirm: 'Are you sure?', class: 'btn btn-danger' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
 <%= link_to 'New glider', new_glider_path, class: 'btn btn-primary' %>

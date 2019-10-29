@@ -1,52 +1,35 @@
-<h1>Attendance show page</h1>
+<h1><%= @attendance.student.name %></h1>
 
-<h2>Attendances</h2>
+<p>Glider: <%= @attendance.glider.name %></p>
+<p><%= render 'gliders/glider_color', glider: @attendance.glider %></p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Student</th>
-      <th>Glider</th>
-      <th>Glider image</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
+<h2>Flights</h2>
+
+<div class='table-responsive'>
+  <table class='table table-striped table-sm table-fit'>
+    <thead class='thead-light'>
       <tr>
-        <td><%= @attendance.student.name %></td>
-        <td><%= @attendance.glider.name %></td>
-        <td>
-          <%= render 'gliders/glider_color', glider: @attendance.glider %>
-        </td>
-        <td><%= button_to 'Delete', [@attendance.day, @attendance], method: :delete, confirm: 'Are you sure?' %></td>
+        <th>#</th>
+        <th>Manouvres</th>
+        <th></th>
+        <th></th>
       </tr>
-  </tbody>
-</table>
-
-<h3>Flights</h3>
-<table>
-  <thead>
-    <tr>
-      <th>Flight Nr.</th>
-      <th>Manouvres</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @attendance.flights.each_with_index do |flight, index| %>
-        <tr>
-        <td><%= index + 1 %></td>
-        <td><%= flight.manoeuvres %></td>
-        <td><%= button_to 'Edit', edit_flight_path(flight), method: :get %></td>
-        <td><%= button_to 'Delete', flight, method: :delete %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @attendance.flights.each_with_index do |flight, index| %>
+          <tr>
+          <td><%= index + 1 %></td>
+          <td><%= flight.manoeuvres %></td>
+          <td><%= button_to 'Edit', edit_flight_path(flight), method: :get, class: 'btn btn-warning' %></td>
+          <td><%= button_to 'Delete', flight, method: :delete, class: 'btn btn-danger' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
 <h2>Create flight</h2>
 
 <%= render partial: 'flights/form' %>
 
-<%= link_to "Back to the day", @attendance.day, class: 'btn' %>
+<%= link_to "Back to the day", @attendance.day, class: 'btn btn-primary' %>
