@@ -3,8 +3,10 @@
 
   <p>Manouvres</p>
 
-  <%= form.collection_check_boxes :manoeuvres_array, Flight::MANOUVRES, :to_s, :to_s %>
-  
+  <%= form.collection_check_boxes :manoeuvres_array, Flight::MANOUVRES, :to_s, :to_s do |m|
+  m.label { m.check_box + m.text}
+  end %>
+
   <p>
     <%= form.submit 'Create flight', class: 'btn btn-success' %>
   </p>
