@@ -1,11 +1,27 @@
 @import "~bootstrap/scss/bootstrap";
 
+body {
+  margin: 2rem;
+}
+
+h1 {
+  margin: 0.8em 0 0.5em;
+}
+h2, h3 {
+  margin: 1.3em 0 0.3em;
+}
+
 label {
   display: inline-block;
+  margin-right: 1em;
 }
 
 .alert {
   background-color: yellow;
+}
+
+.table-fit {
+  width: auto;
 }
 
 .table-attendances {

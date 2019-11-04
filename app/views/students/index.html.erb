@@ -3,39 +3,43 @@
 <%= link_to 'New student', new_student_path, class: 'btn btn-primary' %>
 <%= link_to 'New glider', new_glider_path, class: 'btn btn-primary' %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Total flights</th>
-      <th>Glider</th>
-      <th>Glider color</th>
-      <th>SHV Number</th>
-      <th>Radio</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @students.order(:first_name).each do |student| %>
+<div class='table-responsive'>
+  <table class='table table-striped table-sm table-fit'>
+    <thead class='thead-light'>
       <tr>
-        <td><%= link_to student.name, student %></td>
-        <td><%= student.total_flights %></td>
-        <% unless student.gliders.empty? %>
-          <td><%= student.gliders.last.name %></td>
-          <td>
-            <%= render 'gliders/glider_color', glider: student.gliders.last %>
-          </td>
-        <% else %>
-          <td></td>
-          <td></td>
-        <% end %>
-        <td><%= student.shv_number %></td>
-        <td><%= student.radio %></td>
-        <td><%= button_to 'Delete', student, method: :delete, confirm: 'Are you sure?', class: 'btn btn-danger' %></td>
-        <td><%= link_to 'Edit', edit_student_path(student), class: 'btn btn-warning' %></td>
+        <th>Name</th>
+        <th>Total flights</th>
+        <th>Glider</th>
+        <th>Glider color</th>
+        <th>SHV Number</th>
+        <th>Radio</th>
+        <th></th>
+        <th></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @students.order(:first_name).each do |student| %>
+        <tr>
+          <td><%= link_to student.name, student %></td>
+          <td><%= student.total_flights %></td>
+          <% unless student.gliders.empty? %>
+            <td><%= student.gliders.last.name %></td>
+            <td>
+              <%= render 'gliders/glider_color', glider: student.gliders.last %>
+            </td>
+          <% else %>
+            <td></td>
+            <td></td>
+          <% end %>
+          <td><%= student.shv_number %></td>
+          <td><%= student.radio %></td>
+          <td><%= button_to 'Delete', student, method: :delete, confirm: 'Are you sure?', class: 'btn btn-danger' %></td>
+          <td><%= link_to 'Edit', edit_student_path(student), class: 'btn btn-warning' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
 <br>
 
