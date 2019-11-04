@@ -34,6 +34,9 @@ class DaysController < ApplicationController
     @attendance = Attendance.new(day: @day)
     @students_without_attendance = @day.students_without_attendance
     @gliders = Glider.student_gliders + Glider.school_gliders
+
+    @previous_day = @day.next
+    @next_day = @day.previous
   end
 
   private
