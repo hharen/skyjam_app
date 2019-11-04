@@ -47,4 +47,5 @@ class Flight < ApplicationRecord
   def manoeuvres_array=(array)
     self.manoeuvres = array.reject(&:blank?).join(', ')
   end
+
 end

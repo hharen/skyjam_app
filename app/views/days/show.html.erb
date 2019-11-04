@@ -12,6 +12,10 @@
   Take-off: <strong><%= @day.takeoff %></strong>
 </p>
 
+<div class='d-print-none'>
+  <%= link_to 'Previous day', @day.previous, class: "btn btn-primary" %>
+  <%= link_to 'Next day', @day.next, class: "btn btn-primary" %>
+</div>
 
 <hr>
 
@@ -89,4 +93,5 @@
   <br>
 
   <%= link_to 'New day', new_day_path, class: "btn btn-primary" %>
+
 </div>
