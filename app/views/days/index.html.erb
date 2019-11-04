@@ -4,6 +4,7 @@
   <table class='table table-striped table-sm table-fit'>
     <thead class='thead-light'>
       <tr>
+        <th>#</th>
         <th>Date</th>
         <th>Instructor</th>
         <th>Assistant</th>
@@ -13,8 +14,10 @@
       </tr>
     </thead>
     <tbody>
-      <% @days.order(:date).reverse.each do |day| %>
+      <% length = @days.length %>
+      <% @days.order(:date).reverse.each_with_index do |day, index| %>
         <tr>
+          <td><%= length - index %>
           <td><%= link_to l(day.date), day %></td>
           <td><%= day.instructor %></td>
           <td><%= day.assistant %></td>

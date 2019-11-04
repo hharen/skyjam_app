@@ -11,4 +11,12 @@ class Day < ApplicationRecord
     Student.all - students
   end
 
+  def next
+    self.class.where("date > ?", date).first
+  end
+
+  def previous
+    self.class.where("date < ?", date).last
+  end
+
 end
