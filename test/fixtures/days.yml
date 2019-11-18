@@ -1,7 +1,0 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-day1:
-  date: 2019-01-28
-  instructor: Markus
-  assistant: Delf
-  takeoff: Schrot
