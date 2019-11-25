@@ -1,0 +1,31 @@
+patrik:
+  first_name: Patrik
+  last_name: Spiess
+  middle_name:
+  additional_flights: 0
+  shv_number: 45980
+  radio: yes
+
+manuela:
+  first_name: Manuela
+  last_name: Twrsnick
+  middle_name:
+  additional_flights: 3
+  shv_number: 53748
+  radio: no
+
+kaspar:
+  first_name: Kaspar
+  last_name: Schärer
+  middle_name:
+  additional_flights: 0
+  shv_number:
+  radio: no
+
+ronny:
+  first_name: Ronny
+  last_name: Schrag
+  middle_name:
+  additional_flights: 2
+  shv_number: 56374
+  radio: yes
