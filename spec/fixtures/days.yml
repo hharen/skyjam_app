@@ -1,0 +1,20 @@
+day1:
+  date: 2019-03-27
+  instructor: Markus
+  assistant: Delf
+  takeoff: Schrot
+
+day2:
+  date: 2019-05-17
+  instructor: Markus
+  assistant: Hanka
+  takeoff: Sonnenberg
+
+day3:
+  date: 2019-06-22
+  instructor: Markus
+  assistant: Ales
+  takeoff: Hoch-Ybrig
+
+
+# run rails db:test:prepare to create a database for testing

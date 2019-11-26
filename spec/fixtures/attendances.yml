@@ -1,0 +1,39 @@
+attendance1:
+  glider: nil
+  day: day1
+  student: manuela
+
+attendance2:
+  glider: nil
+  day: day1
+  student: ronny
+
+attendance3:
+  glider: nil
+  day: day2
+  student: manuela
+
+attendance4:
+  glider: nil
+  day: day2
+  student: patrik
+
+attendance5:
+  glider: nil
+  day: day2
+  student: kaspar
+
+attendance6:
+  glider: nil
+  day: day2
+  student: ronny
+
+attendance7:
+  glider: nil
+  day: day3
+  student: kaspar
+
+attendance8:
+  glider: nil
+  day: day3
+  student: ronny
