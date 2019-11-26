@@ -1,7 +1,0 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-thomas:
-  first_name: Thomas
-  last_name: Ritter
-  shv_number: 55676
-  radio: false
