@@ -8,6 +8,11 @@
   end %>
 
   <p>
+    <%= form.label :notes %>
+    <%= form.text_field :notes %>
+  </p>
+  
+  <p>
     <%= form.submit 'Create flight', class: 'btn btn-success' %>
   </p>
 <% end %>
