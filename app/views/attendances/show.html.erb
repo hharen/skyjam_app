@@ -11,6 +11,7 @@
       <tr>
         <th>#</th>
         <th>Manouvres</th>
+        <th>Notes</th>
         <th></th>
         <th></th>
       </tr>
@@ -20,6 +21,7 @@
           <tr>
           <td><%= index + 1 %></td>
           <td><%= flight.manoeuvres %></td>
+          <td><%= flight.notes %></td>
           <td><%= button_to 'Edit', edit_flight_path(flight), method: :get, class: 'btn btn-warning' %></td>
           <td><%= button_to 'Delete', flight, method: :delete, class: 'btn btn-danger' %></td>
         </tr>

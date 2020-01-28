@@ -33,10 +33,15 @@
         <th>Glider image</th>
         <th>SHV No.</th>
         <th>Flight 1</th>
+        <th>Notes</th>
         <th>Flight 2</th>
+        <th>Notes</th>
         <th>Flight 3</th>
+        <th>Notes</th>
         <th>Flight 4</th>
+        <th>Notes</th>
         <th>Flight 5</th>
+        <th>Notes</th>
         <th class='d-print-none'></th>
       </tr>
     </thead>
@@ -54,7 +59,9 @@
           <td><%= attendance.student.shv_number %></td>
           <% attendance.flights.each do |flight| %>
           <td><%= flight.manoeuvres %></td>
+          <td><%= flight.notes %></td>
           <% end %>
+          <%# FIX THE NUMBER OF COLUMNS BASED ON NOTES %>
           <% (5 - attendance.flights.size).times do |i| %>
             <td></td>
           <% end %>
