@@ -57,12 +57,14 @@
             <%= render 'gliders/glider_color', glider: attendance.glider %>
           </td>
           <td><%= attendance.student.shv_number %></td>
+          <% notes = [] %>
           <% attendance.flights.each do |flight| %>
           <td><%= flight.manoeuvres %></td>
           <td><%= flight.notes %></td>
+          <% notes << flight.notes %>
+          <% notes.reject! { |note| note.empty? } %>
           <% end %>
-          <%# FIX THE NUMBER OF COLUMNS BASED ON NOTES %>
-          <% (5 - attendance.flights.size).times do |i| %>
+          <% ((5 - attendance.flights.size) * 2).times do |i| %>
             <td></td>
           <% end %>
           <td class='d-print-none'><%= button_to 'Delete', [@day, attendance], method: :delete, confirm: 'Are you sure?', class: 'btn btn-danger' %></td>
