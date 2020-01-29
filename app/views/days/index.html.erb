@@ -17,7 +17,7 @@
       <% length = @days.length %>
       <% @days.order(:date).reverse.each_with_index do |day, index| %>
         <tr>
-          <td><%= length - index %>
+          <td><%= "#{length - index}.#{day.date.year}" %>
           <td><%= link_to l(day.date), day %></td>
           <td><%= day.instructor %></td>
           <td><%= day.assistant %></td>
