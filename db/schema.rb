@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_28_162539) do
+ActiveRecord::Schema.define(version: 2020_01_31_155804) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,16 @@ ActiveRecord::Schema.define(version: 2019_08_28_162539) do
     t.string "color_oval"
   end
 
+  create_table "licences", force: :cascade do |t|
+    t.date "acquired_on"
+    t.date "expires_on"
+    t.string "country"
+    t.string "licence_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "student_id"
+  end
+
   create_table "students", force: :cascade do |t|
     t.string "first_name", null: false
     t.string "last_name", null: false
@@ -79,4 +89,5 @@ ActiveRecord::Schema.define(version: 2019_08_28_162539) do
   add_foreign_key "attendances", "students"
   add_foreign_key "flights", "attendances"
   add_foreign_key "gliders", "students"
+  add_foreign_key "licences", "students"
 end
