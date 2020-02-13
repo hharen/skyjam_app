@@ -1,21 +1,17 @@
 class LicencesController < ApplicationController
 
-  def new
-    @licence = Licence.new
-  end
-
   def create
     licence = Licence.new(licence_params)
     licence.save!
 
-    [redirect_to licence.student]
+    redirect_to licence.student
   end
 
   def destroy
     licence = Licence.find(params[:id])
     licence.destroy
 
-    [redirect_to licence.student]
+    redirect_to licence.student
   end
 
   def edit
@@ -27,7 +23,7 @@ class LicencesController < ApplicationController
     student = licence.student
     licence.update(licence_params)
 
-    [redirect_to licence.student]
+    redirect_to licence.student
   end
 
   def licence_params

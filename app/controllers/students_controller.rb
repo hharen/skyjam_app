@@ -39,6 +39,7 @@ class StudentsController < ApplicationController
   def show
     @student = Student.find(params[:id])
     @additional_flight = AdditionalFlight.new(student: @student)
+    @licence = Licence.new(student: @student)
   end
 
   def flights

@@ -1,0 +1,25 @@
+<%= form_for [@student, @licence] do |form| %>
+  <%= form.hidden_field :student_id %>
+
+  <p>
+    <%= form.label :country %>
+    <%= form.select(:country, ['CH', 'US', 'SK']) %>
+  </p>
+
+  <p>
+    <%= form.label :licence_type %>
+    <%= form.text_field :licence_type %>
+  </p>
+
+  <p>
+    <%= form.label :acquired_on %>
+    <%= form.date_field :acquired_on %>
+  </p>
+
+  <p>
+    <%= form.label :expires_on %>
+    <%= form.date_field :expires_on %>
+  </p>
+
+  <%= form.submit 'Create licence', class: 'btn btn-success' %>
+<% end %>
