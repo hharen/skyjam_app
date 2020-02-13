@@ -47,6 +47,11 @@ class GlidersController < ApplicationController
 
   def show
     @glider = Glider.find(params[:id])
+
+    respond_to do |format|
+      format.html
+      format.svg { render @glider  }
+    end
   end
 
   private
