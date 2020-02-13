@@ -25,7 +25,15 @@
   Radio: <%= @student.radio %>
 </p>
 
+<p>
+  CH licence: <%= @student.has_ch_licence? %>
+</p>
+
 <%= link_to 'Back to students', students_path, class: 'btn btn-primary' %>
+
+<h2>Create licence:</h2>
+
+<%= render partial: 'licences/form' %>
 
 <h2>Create additional flights:</h2>
 

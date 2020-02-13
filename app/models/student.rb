@@ -3,6 +3,7 @@ class Student < ApplicationRecord
   has_many :gliders, dependent: :destroy
   has_many :flights, through: :attendances
   has_many :additional_flights
+  has_many :licences
 
   def name
     [first_name, middle_name, last_name].reject(&:blank?).join(' ')
@@ -37,4 +38,7 @@ class Student < ApplicationRecord
     self.attendances.count
   end
 
+  def has_ch_licence?
+    licences.any? { |licence| licence.country == "CH" }
+  end
 end

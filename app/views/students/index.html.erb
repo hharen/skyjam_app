@@ -13,6 +13,7 @@
         <th>Glider color</th>
         <th>SHV Number</th>
         <th>Radio</th>
+        <th>CH licence</th>
         <th></th>
         <th></th>
       </tr>
@@ -33,6 +34,7 @@
           <% end %>
           <td><%= student.shv_number %></td>
           <td><%= student.radio %></td>
+          <td><%= student.has_ch_licence? %></td>
           <td><%= link_to 'Edit', edit_student_path(student), class: 'btn btn-warning' %></td>
           <td><%= button_to 'Delete', student, method: :delete, confirm: 'Are you sure?', class: 'btn btn-danger' %></td>
         </tr>
