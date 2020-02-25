@@ -27,7 +27,7 @@ jobs:
         ruby-version: 2.7.x
 
     - name: Install node
-      run: sudo apt-get install node
+      run: sudo apt-get install nodejs
 
     - name: Build and test with Rake
       run: |
