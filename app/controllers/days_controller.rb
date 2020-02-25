@@ -20,7 +20,7 @@ class DaysController < ApplicationController
       flash[:error_day_has_attendances] = "You can't delete this day. There are students attending it.
       If you want to delete it, please delete also the attendances."
     else
-      day.find(params[:id]).destroy
+      day.destroy!
     end
 
     redirect_to action: :index
