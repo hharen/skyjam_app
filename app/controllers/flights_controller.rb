@@ -28,8 +28,6 @@ class FlightsController < ApplicationController
     redirect_to [attendance.day, attendance]
   end
 
-
-
   private
 
   def flight_params

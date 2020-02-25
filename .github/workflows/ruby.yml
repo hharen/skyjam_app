@@ -26,13 +26,17 @@ jobs:
       with:
         ruby-version: 2.7.x
 
-    - name: Install node
-      run: sudo apt-get install nodejs
-
     - name: Build and test with Rake
       run: |
         gem install bundler
         bundle install --jobs 4 --retry 3
+
+    - name: Run rubocop
+      run: |
+        bundle exec rubocop || true
+
+    - name: Install node
+      run: sudo apt-get install nodejs
 
     - name: Yarn install
       run: yarn --frozen-lockfile
