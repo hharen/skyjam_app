@@ -62,7 +62,6 @@
             <td><%= flight.manoeuvres %></td>
             <td><%= flight.notes %></td>
             <% notes << flight.notes %>
-            <% notes.reject! { |note| note.empty? } %>
           <% end %>
           <% ((5 - attendance.flights.size) * 2).times do |i| %>
             <td></td>
