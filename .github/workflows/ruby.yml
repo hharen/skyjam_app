@@ -26,10 +26,16 @@ jobs:
       with:
         ruby-version: 2.7.x
 
+    - name: Install node
+      run: sudo apt-get install node
+
     - name: Build and test with Rake
       run: |
         gem install bundler
         bundle install --jobs 4 --retry 3
+
+    - name: Yarn install
+      run: yarn --frozen-lockfile
 
     - name: Setup Database
       run: |
