@@ -4,11 +4,11 @@ RSpec.describe Day, type: :model do
   fixtures :all
 
   describe '#has_student?' do # # for an instance method, . for a class method
-    context 'day has student' do
+    context 'day has this student' do
       let(:student) { Student.new }
 
       subject(:day) do
-        described_class.new(students: [student])
+        Day.new(students: [student])
       end
 
       it 'returns true' do
@@ -17,15 +17,15 @@ RSpec.describe Day, type: :model do
     end
 
     context 'day doesnt have this student' do
-      let(:student) { Student.new }
       let(:student1) { Student.new }
+      let(:student2) { Student.new }
 
       subject(:day) do
-        described_class.new(students: [student])
+        Day.new(students: [student1])
       end
 
       it 'returns false' do
-        expect(subject.has_student?(student1)).to be false
+        expect(subject.has_student?(student2)).to be false
       end
     end
   end
@@ -33,7 +33,7 @@ RSpec.describe Day, type: :model do
   describe '#students_without_attendance' do
     context 'day has no attendances' do
       subject(:day) do
-        described_class.new
+        Day.new
       end
 
       it 'returns all students' do
@@ -50,6 +50,31 @@ RSpec.describe Day, type: :model do
         expect(subject.students_without_attendance).to eq(students(:patrik, :kaspar))
       end
     end
+  end
 
+  describe '#next' do
+    context 'a day that has a next day' do
+      subject(:day) do
+        days(:day2)
+      end
+
+      it 'returns the chronologically next day' do
+        expect(day.next).to eq(days(:day3))
+      end
+    end
+
+    context 'the last day' do
+      subject(:day) do
+        days(:day3)
+      end
+
+      it 'returns nil' do
+        expect(day.next).to eq(nil)
+      end
+    end
+  end
+
+  describe '#previous' do
+    # TODO: implement this
   end
 end
