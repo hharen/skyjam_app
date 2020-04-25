@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Day, type: :model do
-  fixtures :all
+  fixtures :days, :students, :attendances
 
   describe '#has_student?' do # # for an instance method, . for a class method
     context 'day has this student' do
