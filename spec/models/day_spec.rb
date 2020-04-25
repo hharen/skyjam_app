@@ -5,7 +5,7 @@ RSpec.describe Day, type: :model do
 
   describe '#has_student?' do # # for an instance method, . for a class method
     context 'day has this student' do
-      let(:student) { Student.new }
+      let(:student) { Student.new } # why we didn't use fixture here??? like :student1
 
       subject(:day) do
         Day.new(students: [student])
@@ -25,7 +25,7 @@ RSpec.describe Day, type: :model do
       end
 
       it 'returns false' do
-        expect(subject.has_student?(student2)).to be false
+        expect(day.has_student?(student2)).to be false
       end
     end
   end
@@ -37,7 +37,7 @@ RSpec.describe Day, type: :model do
       end
 
       it 'returns all students' do
-        expect(subject.students_without_attendance).to eq(Student.all)
+        expect(day.students_without_attendance).to eq(Student.all)
       end
     end
 
@@ -47,7 +47,7 @@ RSpec.describe Day, type: :model do
       end
 
       it 'returns students which did not attend the day' do
-        expect(subject.students_without_attendance).to eq(students(:patrik, :kaspar))
+        expect(day.students_without_attendance).to eq(students(:patrik, :kaspar))
       end
     end
   end
@@ -75,6 +75,25 @@ RSpec.describe Day, type: :model do
   end
 
   describe '#previous' do
-    # TODO: implement this
+    context 'a day that has previous day' do
+      subject(:day) do
+        days(:day2) # find out what days does
+      end
+
+      it 'it returns chronologically previous day' do
+        expect(day.previous).to eq(days(:day1))
+      end
+    end
+
+    context 'the first day' do
+      subject(:day) do
+        days(:day1)
+      end
+
+      it 'returns nil' do
+        expect(day.previous).to eq(nil)
+      end
+    end
   end
+
 end
