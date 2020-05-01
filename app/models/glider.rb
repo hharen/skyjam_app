@@ -13,9 +13,9 @@ class Glider < ApplicationRecord
   has_many :attendances
 
   def name
-    if manufacturer.nil?
+    if manufacturer.blank?
       "#{glider_type} #{size}".strip
-    elsif size.nil?
+    elsif size.blank?
       "#{glider_type} | #{manufacturer}"
     else
       "#{glider_type} #{size} | #{manufacturer}"
