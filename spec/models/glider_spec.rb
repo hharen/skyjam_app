@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Glider, type: :model do
-#  fixtures :all
+fixtures :all
 
   describe '#name' do
     context 'has size and manufacturer'do
@@ -60,6 +60,14 @@ RSpec.describe Glider, type: :model do
       it 'is false' do
         expect(glider.text_color?).to be false
       end
+    end
+  end
+
+  describe '.student_gliders' do
+    subject(:glider) { gliders(:patricks_glider) }
+
+    it "returns an array of students' gliders" do
+      expect(Glider.student_gliders).to eq([glider])
     end
   end
 end
