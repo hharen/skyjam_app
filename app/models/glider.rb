@@ -13,7 +13,11 @@ class Glider < ApplicationRecord
   has_many :attendances
 
   def name
-    "#{glider_type} #{size} | #{manufacturer}"
+    if manufacturer.nil?
+      "#{glider_type} #{size}".strip
+    else
+      "#{glider_type} #{size} | #{manufacturer}"
+    end
   end
 
   def self.all_sorted_by_student_first_name
