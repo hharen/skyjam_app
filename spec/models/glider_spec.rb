@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Glider, type: :model do
-  fixtures :all
+#  fixtures :all
 
   describe '#name' do
     context 'has size and manufacturer'do
@@ -31,6 +31,16 @@ RSpec.describe Glider, type: :model do
 
       it 'returns "Wave 2"' do
         expect(glider.name).to eq('Wave 2')
+      end
+    end
+
+    context 'does not have size'do
+      subject(:glider) do
+        Glider.new(glider_type: 'Wave 2', manufacturer: 'Skyjam')
+      end
+
+      it 'returns "Wave 2 | Skyjam"' do
+        expect(glider.name).to eq('Wave 2 | Skyjam')
       end
     end
   end

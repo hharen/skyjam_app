@@ -15,6 +15,8 @@ class Glider < ApplicationRecord
   def name
     if manufacturer.nil?
       "#{glider_type} #{size}".strip
+    elsif size.nil?
+      "#{glider_type} | #{manufacturer}"
     else
       "#{glider_type} #{size} | #{manufacturer}"
     end
