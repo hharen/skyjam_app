@@ -1,4 +1,6 @@
-<h1><%= l @day.date %></h1>
+<h1 class='d-print-none'><%= l @day.date %></h1>
+
+<p class='d-none d-print-inline'><strong><%= l @day.date %></strong></p>
 
 <p class='d-print-inline'>
   Instructor: <strong><%= @day.instructor %></strong>
@@ -19,7 +21,7 @@
 
 <hr>
 
-<h2>Attendances</h2>
+<h2 class='d-print-none'>Attendances</h2>
 
 <div class='table-responsive'>
   <table class='table table-striped table-sm table-attendances'>
