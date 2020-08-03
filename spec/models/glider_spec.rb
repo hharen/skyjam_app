@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Glider, type: :model do
-fixtures :all
+  fixtures :all
 
   describe '#name' do
     context 'has size and manufacturer'do
