@@ -64,10 +64,27 @@ fixtures :all
   end
 
   describe '.student_gliders' do
-    subject(:glider) { gliders(:patricks_glider) }
+    subject(:expected_gliders) { gliders(:patricks_glider, :manuelas_glider) }
 
     it "returns an array of students' gliders" do
-      expect(Glider.student_gliders).to eq([glider])
+      expect(Glider.student_gliders).to eq(expected_gliders)
+    end
+  end
+
+  describe '.school_gliders' do
+    subject(:expected_gliders) { gliders(:school_glider1, :school_glider2) }
+
+    it 'returns an array of school gliders' do
+      expect(Glider.school_gliders).to eq(expected_gliders)
+    end
+  end
+
+  describe '.all_sorted_by_student_first_name' do
+    subject(:all_gliders) { gliders( :school_glider1, :school_glider2,
+      :manuelas_glider, :patricks_glider) }
+
+    it 'returns an array of all students ordered by first name' do
+      expect(Glider.all_sorted_by_student_first_name). to eq(all_gliders)
     end
   end
 end

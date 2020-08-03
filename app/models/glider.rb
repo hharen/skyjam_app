@@ -22,10 +22,6 @@ class Glider < ApplicationRecord
     end
   end
 
-  def self.all_sorted_by_student_first_name
-    all.sort_by { |glider| glider.student&.first_name || '' }
-  end
-
   def text_color?
     color.present?
   end
@@ -36,5 +32,9 @@ class Glider < ApplicationRecord
 
   def self.school_gliders
     where(student: nil)
+  end
+
+  def self.all_sorted_by_student_first_name
+    all.sort_by { |glider| glider.student&.first_name || '' }
   end
 end
