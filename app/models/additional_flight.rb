@@ -6,6 +6,7 @@ class AdditionalFlight < ApplicationRecord
   end
 
   def manoeuvres
+    nil
   end
 
 end
