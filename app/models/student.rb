@@ -4,6 +4,7 @@ class Student < ApplicationRecord
   has_many :flights, through: :attendances
   has_many :additional_flights
   has_many :licences
+  validates :first_name, :last_name, presence: true
 
   def name
     [first_name, middle_name, last_name].reject(&:blank?).join(' ')
