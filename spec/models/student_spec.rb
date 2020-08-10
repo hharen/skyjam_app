@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Student, type: :model do
+  fixtures :students
 
   describe '#name' do
 
@@ -17,6 +18,32 @@ RSpec.describe Student, type: :model do
 
       it 'returns "Thomas Medard Ritter"' do
         expect(student.name).to eq('Thomas Medard Ritter')
+      end
+    end
+  end
+
+  describe '#has_ch_licence' do
+    subject(:student) {students(:patrik)}
+
+    context 'has ch licence' do
+      it 'returns true' do
+        expect(student.has_ch_licence?).to eq(true)
+      end
+    end
+
+    context 'has no licence' do
+      it 'returns false' do
+        student.licences = []
+
+        expect(student.has_ch_licence?).to eq(false)
+      end
+    end
+
+    context 'has sk licence' do
+      it 'returns false' do
+        student.licences.first.update(country: 'sk')
+
+        expect(student.has_ch_licence?).to eq(false)
       end
     end
   end
