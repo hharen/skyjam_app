@@ -4,7 +4,7 @@ RSpec.describe Glider, type: :model do
   fixtures :all
 
   describe '#name' do
-    context 'has size and manufacturer'do
+    context 'has size and manufacturer' do
       subject(:glider) do
         Glider.new(glider_type: 'Wave 2', size: 'S', manufacturer: 'Skyjam')
       end
@@ -14,7 +14,7 @@ RSpec.describe Glider, type: :model do
       end
     end
 
-    context 'does not have manufacturer'do
+    context 'does not have manufacturer' do
       subject(:glider) do
         Glider.new(glider_type: 'Wave 2', size: 'S')
       end
@@ -24,7 +24,7 @@ RSpec.describe Glider, type: :model do
       end
     end
 
-    context 'does not have size nor manufacturer'do
+    context 'does not have size nor manufacturer' do
       subject(:glider) do
         Glider.new(glider_type: 'Wave 2')
       end
@@ -34,7 +34,7 @@ RSpec.describe Glider, type: :model do
       end
     end
 
-    context 'does not have size'do
+    context 'does not have size' do
       subject(:glider) do
         Glider.new(glider_type: 'Wave 2', manufacturer: 'Skyjam')
       end
@@ -80,11 +80,12 @@ RSpec.describe Glider, type: :model do
   end
 
   describe '.all_sorted_by_student_first_name' do
-    subject(:all_gliders) { gliders( :school_glider1, :school_glider2,
-      :manuelas_glider, :patricks_glider) }
+    subject(:all_gliders) do
+      gliders(:school_glider1, :school_glider2, :manuelas_glider, :patricks_glider)
+    end
 
     it 'returns an array of all students ordered by first name' do
-      expect(Glider.all_sorted_by_student_first_name). to eq(all_gliders)
+      expect(Glider.all_sorted_by_student_first_name).to eq(all_gliders)
     end
   end
 end

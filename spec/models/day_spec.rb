@@ -5,7 +5,7 @@ RSpec.describe Day, type: :model do
 
   describe '#has_student?' do # # for an instance method, . for a class method
     context 'day has this student' do
-      let(:student) { Student.new } # why we didn't use fixture here??? like :student1
+      let(:student) { Student.new }
 
       subject(:day) do
         Day.new(students: [student])
@@ -15,8 +15,8 @@ RSpec.describe Day, type: :model do
         expect(subject.has_student?(student)).to be true
       end
     end
-# so we let things which we need but aren't the object of the test and use
-# subject when we refer to an object under test?
+# we let things which we need but aren't the object of the test and use
+# subject when we refer to an object under test
     context 'day doesnt have this student' do
       let(:student1) { Student.new }
       let(:student2) { Student.new }
@@ -33,7 +33,7 @@ RSpec.describe Day, type: :model do
 
   describe '#students_without_attendance' do
     context 'day has no attendances' do
-      subject(:day) do # is this equivalent to let(:day) { Day.new } ???
+      subject(:day) do # this is equivalent to let(:day) { Day.new }
         Day.new
       end
 
@@ -78,7 +78,7 @@ RSpec.describe Day, type: :model do
   describe '#previous' do
     context 'a day that has previous day' do
       subject(:day) do
-        days(:day2) # find out what days does
+        days(:day2)
       end
 
       it 'it returns chronologically previous day' do
