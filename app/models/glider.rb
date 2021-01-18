@@ -13,11 +13,13 @@ class Glider < ApplicationRecord
   has_many :attendances
 
   def name
-    "#{glider_type} #{size} | #{manufacturer}"
-  end
-
-  def self.all_sorted_by_student_first_name
-    all.sort_by { |glider| glider.student&.first_name || '' }
+    if manufacturer.blank?
+      "#{glider_type} #{size}".strip
+    elsif size.blank?
+      "#{glider_type} | #{manufacturer}"
+    else
+      "#{glider_type} #{size} | #{manufacturer}"
+    end
   end
 
   def text_color?
@@ -30,5 +32,9 @@ class Glider < ApplicationRecord
 
   def self.school_gliders
     where(student: nil)
+  end
+
+  def self.all_sorted_by_student_first_name
+    all.sort_by { |glider| glider.student&.first_name || '' }
   end
 end

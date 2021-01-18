@@ -1,0 +1,19 @@
+patricks_glider:
+  glider_type: Wave
+  size: M
+  student: patrik
+
+manuelas_glider:
+  glider_type: Wave
+  size: XS
+  student: manuela
+
+school_glider1:
+  glider_type: Wave
+  size: M
+  student: null
+
+school_glider2:
+  glider_type: Wave
+  size: M
+  student: null

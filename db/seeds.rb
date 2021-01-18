@@ -5,3 +5,31 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require 'faker'
+
+puts 'Creating students...'
+8.times do
+  Student.create(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name
+  )
+end
+
+puts 'Creating gliders...'
+5.times do
+  Glider.create(
+    glider_type: Faker::Dessert.flavor,
+    size: ['XS', 'S', 'M', 'L', 'XL'].sample,
+    manufacturer: Faker::Creature::Animal.name,
+    student_id: rand(1..8)
+  )
+end
+
+3.times do
+  Glider.create(
+    glider_type: Faker::Dessert.flavor,
+    size: ['XS', 'S', 'M', 'L', 'XL'].sample,
+    manufacturer: Faker::Creature::Animal.name.capitalize,
+  )
+end
