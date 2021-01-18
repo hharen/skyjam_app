@@ -5,6 +5,9 @@ Running server locally
 Start webpacker with: 
 ./bin/webpack-dev-server
 
+Do heroku backup:
+heroku pg:backups:capture --app skyjam <-creates the backup
+heroku pg:backups:url --app skyjam <-downloads the file
 
 
 This README would normally document whatever steps are necessary to get the
