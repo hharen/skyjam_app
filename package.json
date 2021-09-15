@@ -5,10 +5,11 @@
     "@rails/webpacker": "^4.0.7",
     "bootstrap": "^4.3.1",
     "jquery": "^3.5.0",
+    "latest-version": "^6.0.0",
     "p": "^0.2.0",
     "popper.js": "^1.15.0",
     "turbolinks": "^5.2.0",
-    "yarn": "^1.22.0"
+    "yarn": "^1.22.5"
   },
   "devDependencies": {
     "webpack-dev-server": "^3.7.2"
