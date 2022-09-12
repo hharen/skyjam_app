@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby `cat .ruby-version`.chomp
+ruby '3.1.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.1', '>= 6.1.4.1'
@@ -31,10 +31,12 @@ gem 'jbuilder', '~> 2.11', '>= 2.11.2'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'net-smtp', '~> 0.3.1'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '~> 1.8', '>= 1.8.1', require: false
 
-gem 'pg', '~> 1.2', '>= 1.2.3'
+gem 'pg', '~> 1.4.3'
 
 gem 'carrierwave', '~> 2.2', '>= 2.2.2'
 
