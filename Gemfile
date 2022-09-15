@@ -4,20 +4,28 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.1.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.1', '>= 6.1.4.1'
+gem 'rails', '~> 7.0', '>= 7.0.4'
+
+# The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
+gem 'sprockets-rails'
+
+# Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
+gem 'importmap-rails'
+
+# Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
+gem 'turbo-rails', '~> 1.0'
+
 # Use Puma as the app server
 gem 'puma', '~> 5.4'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 6.0'
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '~> 4.2'
+gem 'sassc-rails'
+
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 5.0'
-# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5.2', '>= 5.2.1'
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.11', '>= 2.11.2'
 # Use Redis adapter to run Action Cable in production
@@ -39,8 +47,6 @@ gem 'bootsnap', '~> 1.8', '>= 1.8.1', require: false
 gem 'pg', '~> 1.4.3'
 
 gem 'carrierwave', '~> 2.2', '>= 2.2.2'
-
-gem 'webpacker', '~> 5.4', '>= 5.4.3'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
