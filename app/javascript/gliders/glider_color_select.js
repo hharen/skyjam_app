@@ -4,7 +4,7 @@ var updateVisibleState = function() {
   for (let colorRadio of colorRadios) {
     var visibleClass = colorRadio.getAttribute('data-visible-class');
 
-    visibleClassElements = document.getElementsByClassName(visibleClass);
+    let visibleClassElements = document.getElementsByClassName(visibleClass);
 
     for (let element of visibleClassElements) {
       element.style.display = colorRadio.checked ? '' : 'none';
@@ -25,7 +25,7 @@ var handleGliderColorRadios = function() {
   }
 }
 
-document.addEventListener('turbolinks:load', function() {
+document.addEventListener('turbo:load', function() {
   handleGliderColorRadios();
   updateVisibleState();
 });

@@ -27,6 +27,6 @@ var handleStudentSelect = function() {
   document.getElementById('attendance_student_id').addEventListener('change', onStudentSelectChange);
 }
 
-document.addEventListener('turbolinks:load', function() {
+document.addEventListener('turbo:load', function() {
   handleStudentSelect();
 });
