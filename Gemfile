@@ -20,6 +20,8 @@ gem 'puma', '~> 5.4'
 # Use SCSS for stylesheets
 gem 'sassc-rails'
 
+gem 'bootstrap', '~> 5.2.2'
+
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
 

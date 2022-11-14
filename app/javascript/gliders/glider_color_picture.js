@@ -25,7 +25,7 @@ var handleGliderColors = function() {
   }
 }
 
-document.addEventListener('turbolinks:load', function() {
+document.addEventListener('turbo:load', function() {
   handleGliderColors();
 });
 
