@@ -38,7 +38,7 @@ gem 'bootsnap', '~> 1.8', '>= 1.8.1', require: false
 
 gem 'pg', '~> 1.4.3'
 
-gem 'carrierwave', '~> 2.2', '>= 2.2.2'
+gem 'carrierwave', '~> 2.2'
 
 gem 'webpacker', '~> 5.4', '>= 5.4.3'
 
