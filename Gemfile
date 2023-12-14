@@ -6,7 +6,7 @@ ruby '3.1.2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.1', '>= 6.1.4.1'
 # Use Puma as the app server
-gem 'puma', '~> 5.4'
+gem 'puma', '~> 5.6'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 6.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -38,7 +38,7 @@ gem 'bootsnap', '~> 1.8', '>= 1.8.1', require: false
 
 gem 'pg', '~> 1.4.3'
 
-gem 'carrierwave', '~> 2.2', '>= 2.2.2'
+gem 'carrierwave', '~> 2.2'
 
 gem 'webpacker', '~> 5.4', '>= 5.4.3'
 
